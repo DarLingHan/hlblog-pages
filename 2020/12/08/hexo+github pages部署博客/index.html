@@ -9,15 +9,15 @@
   
   
   
-  <meta name="description" content="测试测试测试部署成功了吗">
+  <meta name="description" content="步骤 一、hexo环境配置   a. 安装Node.js环境   b. 安装Git环境   c. 安装Hexo npm install -g hexo-cli   d. hexo init 项目名   e. npm intsall   f. hexo generator 生成静态文件   g. hexo server 启动   h. npm install hexo-deployer-git --">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
-<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2020/12/08/test/index.html">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2020/12/08/hexo+github%20pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="HL&#39;s Blog">
-<meta property="og:description" content="测试测试测试部署成功了吗">
+<meta property="og:description" content="步骤 一、hexo环境配置   a. 安装Node.js环境   b. 安装Git环境   c. 安装Hexo npm install -g hexo-cli   d. hexo init 项目名   e. npm intsall   f. hexo generator 生成静态文件   g. hexo server 启动   h. npm install hexo-deployer-git --">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-08T11:13:15.000Z">
-<meta property="article:modified_time" content="2020-12-10T07:12:04.004Z">
+<meta property="article:modified_time" content="2020-12-10T09:50:07.852Z">
 <meta property="article:author" content="DarLing">
 <meta name="twitter:card" content="summary">
   
@@ -171,7 +171,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-test" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-hexo+github pages部署博客" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -187,7 +187,7 @@
     
     <div class="article-meta">
       
-	<a href="/hlblog-pages/2020/12/08/test/" class="article-date">
+	<a href="/hlblog-pages/2020/12/08/hexo+github%20pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" class="article-date">
 	  <time datetime="2020-12-08T11:13:15.000Z" itemprop="datePublished">2020-12-08</time>
 	</a>
 
@@ -204,7 +204,44 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试测试测试部署成功了吗</p>
+        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p>一、hexo环境配置</p>
+<p>  a. 安装Node.js环境</p>
+<p>  b. 安装Git环境</p>
+<p>  c. 安装Hexo <code>npm install -g hexo-cli</code></p>
+<p>  d. hexo init <code>项目名</code></p>
+<p>  e. <code>npm intsall</code></p>
+<p>  f. <code>hexo generator</code> 生成静态文件</p>
+<p>  g. <code>hexo server</code> 启动</p>
+<p>  h. <code>npm install hexo-deployer-git --save</code> 安装hexo-deployer-git</p>
+<p>  i. </p>
+<pre><code>  deploy
+      type: git
+      repository: git@github.com:YOUR_ID/YOUR_ID.github.io.git
+      branch: master     </code></pre>
+<p>  在”_config.yml”配置中将deploy 的 type由github改为git</p>
+<p>  j. <code>hexo deploy</code> 实现自动部署到git</p>
+<p>  k. 替换主题的时候 下载对应的主题文件 放到themes文件目录下，修改_config.yml文件中的theme为该主题目录名</p>
+<p>  l. </p>
+<pre><code>  ## If your site is put in a subdirectory, set url as &#39;http://example.com/child&#39; and root as &#39;/child/&#39;
+  url: https://darlinghan.github.io/hlblog-pages
+  root: /hlblog-pages/</code></pre>
+<p>  部署hexo到GitHub pages时样式错乱 要修改_config.yml下的url为(GitHub——settings——GitHub Pages)生成的路径，及root为路径地址</p>
+</li>
+<li><p>二、GitHub Pages配置</p>
+<p>  使用它部署静态资源，因为免费，不限容量大小，而且可以集成git,开发使用起来非常方便，虽然访问有点慢。</p>
+<p>  a. GitHub repository创建自己的仓库<code>TESTXXX</code></p>
+<p>  b. 修改该仓库下的settings——》Github Pages——》Theme Chooser——》choose theme——》source 配置 master(或其他分支)</p>
+<p>  c. 配置公钥私钥</p>
+<pre><code>  Git Bash下 输入`ssh-keygen -t rsa -C &quot;XXXXX@qq.com&quot;`指令
+  一路回车
+  会在`~/.ssh/`下生成两个文件`id_rsa`和`id_rsa.pub`
+  GitHub 个人中心的 SSH and GPG keys下 新增SSH key
+  复制`id_rsa.pub`下的内容</code></pre>
+</li>
+<li><p>三、映射自己的专属域名</p>
+</li>
+</ul>
 
       
     </div>
@@ -233,7 +270,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/hlblog-pages/2020/12/08/test/" target="_blank" title="test">https://darlinghan.github.io/hlblog-pages/2020/12/08/test/</a>
+          <a href="/hlblog-pages/2020/12/08/hexo+github pages部署博客/" target="_blank" title="test">https://darlinghan.github.io/hlblog-pages/2020/12/08/hexo+github pages部署博客/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -298,7 +335,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav">None</ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a></li></ol>
     
     </div>
   </aside>
