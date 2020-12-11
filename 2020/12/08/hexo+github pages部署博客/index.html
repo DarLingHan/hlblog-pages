@@ -17,7 +17,7 @@
 <meta property="og:description" content="步骤 一、hexo环境配置   a. 安装Node.js环境   b. 安装Git环境   c. 安装Hexo npm install -g hexo-cli   d. hexo init 项目名   e. npm intsall   f. hexo generator 生成静态文件   g. hexo server 启动   h. npm install hexo-deployer-git --">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-08T11:13:15.000Z">
-<meta property="article:modified_time" content="2020-12-10T11:16:12.298Z">
+<meta property="article:modified_time" content="2020-12-11T11:22:51.294Z">
 <meta property="article:author" content="DarLing">
 <meta name="twitter:card" content="summary">
   
@@ -240,6 +240,15 @@
   复制`id_rsa.pub`下的内容</code></pre>
 </li>
 <li><p>三、映射自己的专属域名</p>
+<p>  背景： 我是在阿里云oss购买的域名，10年199元<code>hanling.fun</code>的域名，便宜吧~</p>
+<p>  a. 方式一</p>
+<pre><code>  直接GitHub——》仓库的settings——》Github pages——》Custom Domain输入自己买的域名，
+  然后一般要10分钟以后生效，我搭建的时候当天晚上没有生效，第二天早上看了下，还是没有生效，
+  然后我又在Custom Domain里又重新输入了一下自己的域名，然后Github Pages下的域名地址就由原来Github默认提供的地址更新为了我自己的域名，
+  并且提升30分钟至1小时后才会更新，所以再等等看吧~</code></pre>
+<p>  b. 方式二</p>
+<pre><code>  Github博客部署hexo静态文件的那个repository（仓库）根目录下新建CNAME文件，里面放入自己的域名。
+  购买的域名官方网站去解析，添加记录——》记录类型为CNAME，主机记录为@，解析线路默认，记录值为github的仓库名（也就是自己的GitHub地址），TTL可选默认10分钟。</code></pre>
 </li>
 </ul>
 
