@@ -17,7 +17,7 @@
 <meta property="og:description" content="步骤 一、hexo环境配置   a. 安装Node.js环境   b. 安装Git环境   c. 安装Hexo npm install -g hexo-cli   d. hexo init 项目名   e. npm intsall   f. hexo generator 生成静态文件   g. hexo server 启动   h. npm install hexo-deployer-git --">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-08T11:13:15.000Z">
-<meta property="article:modified_time" content="2020-12-11T11:22:51.294Z">
+<meta property="article:modified_time" content="2020-12-14T08:13:46.834Z">
 <meta property="article:author" content="DarLing">
 <meta name="twitter:card" content="summary">
   
@@ -251,6 +251,10 @@
   购买的域名官方网站去解析，添加记录——》记录类型为CNAME，主机记录为@，解析线路默认，记录值为github的仓库名（也就是自己的GitHub地址），TTL可选默认10分钟。</code></pre>
 </li>
 </ul>
+<p>四、过程中遇到的问题</p>
+<pre><code>1.hexo deploy时CNAME文件会丢失
+
+直接hexo——》source目录下建CNAME文件——》hexo deploy时会将该文件生成到public下；该文件就是填写自己的域名，GitHub会自动读取这个文件里的内容把它映射到GitHub pages原本提供的地址。</code></pre>
 
       
     </div>
