@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、hexo环境配置12345678910111213141516171819202122a. 安装Node.js环境b. 安装Git环境c. 安装Hexo &#96;npm install -g hexo-cli&#96;d. hexo init &#96;项目名&#96;e. &#96;npm intsall&#96;f. &#96;hexo generator&#96; 生成静态文件g. &amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-08T11:13:15.000Z">
-<meta property="article:modified_time" content="2020-12-14T08:39:25.730Z">
+<meta property="article:modified_time" content="2020-12-15T03:01:57.474Z">
 <meta property="article:author" content="DarLing">
 <meta name="twitter:card" content="summary">
   
@@ -213,7 +213,7 @@
 <h2 id="三、映射自己的专属域名"><a href="#三、映射自己的专属域名" class="headerlink" title="三、映射自己的专属域名"></a>三、映射自己的专属域名</h2><pre><code>背景： 我是在阿里云oss购买的域名，10年199元`hanling.fun`的域名，便宜吧~</code></pre>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a. 方式一</span><br><span class="line">    直接GitHub——》仓库的settings——》Github pages——》Custom Domain输入自己买的域名，</span><br><span class="line">    然后一般要10分钟以后生效，我搭建的时候当天晚上没有生效，第二天早上看了下，还是没有生效，</span><br><span class="line">    然后我又在Custom Domain里又重新输入了一下自己的域名，</span><br><span class="line">    然后Github Pages下的域名地址就由原来Github默认提供的地址更新为了我自己的域名，</span><br><span class="line">    并且提升30分钟至1小时后才会更新，所以再等等看吧~</span><br><span class="line">b. 方式二</span><br><span class="line">    Github博客部署hexo静态文件的那个repository（仓库）根目录下新建CNAME文件，里面放入自己的域名。</span><br><span class="line">    购买的域名官方网站去解析，添加记录——》记录类型为CNAME，</span><br><span class="line">    主机记录为@，解析线路默认，记录值为github的仓库名（也就是自己的GitHub地址），TTL可选默认10分钟。</span><br></pre></td></tr></table></figure>
 
-<h2 id="四、过程中遇到的问题"><a href="#四、过程中遇到的问题" class="headerlink" title="四、过程中遇到的问题"></a>四、过程中遇到的问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.hexo deploy时CNAME文件会丢失</span><br><span class="line">直接hexo——》source目录下建CNAME文件——》hexo deploy时会将该文件生成到public下；</span><br><span class="line">该文件就是填写自己的域名，GitHub会自动读取这个文件里的内容把它映射到GitHub pages原本提供的地址。</span><br><span class="line">2.部署后样式错乱问题</span><br><span class="line">注意public打包后的文件，index.html中引入的样式路径是否正确，</span><br><span class="line">不正确的话对应的调整_config.yml中的url,root配置。</span><br></pre></td></tr></table></figure>
+<h2 id="四、过程中遇到的问题"><a href="#四、过程中遇到的问题" class="headerlink" title="四、过程中遇到的问题"></a>四、过程中遇到的问题</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.hexo deploy时CNAME文件会丢失</span><br><span class="line">直接hexo——》source目录下建CNAME文件——》hexo deploy时会将该文件生成到public下；</span><br><span class="line">该文件就是填写自己的域名，GitHub会自动读取这个文件里的内容把它映射到GitHub pages原本提供的地址。</span><br><span class="line">2.部署后样式错乱问题</span><br><span class="line">注意public打包后的文件，index.html中引入的样式路径是否正确，</span><br><span class="line">不正确的话对应的调整<span class="emphasis">_config.yml中的url,root配置。</span></span><br><span class="line"><span class="emphasis">3.开启搜索模式</span></span><br><span class="line"><span class="emphasis">要实现站内搜索，必须在hexo目录下先安装 `hexo-generator-json-content`插件，然后设置_</span>config.yml文件下的insight为true</span><br><span class="line">4.开启评论功能</span><br><span class="line">livere（来必力）网站注册账户</span><br><span class="line">选择来必力City版本——免费——安装——》生成了代码，复制其中的data-uid</span><br><span class="line">登录自己的账户（比如微信）</span><br><span class="line">修改hexo主题下的<span class="emphasis">_config.yml文件中的livere_</span>shortname字段为刚刚复制的内容</span><br><span class="line">就大功告成啦~</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -228,8 +228,8 @@ var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
   btnText: 'Donate', // 可选参数，打赏按钮文字
   el: document.getElementById('donation_div'),
-  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
-  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
 });
 </script>
       
@@ -257,7 +257,7 @@ var a = new Donate({
         
 	<div id="comment">
 		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
 		<script type="text/javascript">
 		   (function(d, s) {
 		       var j, e = d.getElementsByTagName(s)[0];
