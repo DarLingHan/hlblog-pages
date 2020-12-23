@@ -3,25 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>杭州四人游 | HL&#39;s Blog</title>
+  <title>跨域 | HL&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="跨域工作" />
   
   
   
-  <meta name="description" content="周五周五就从公司出发了，走路到携程只要15分钟，然后朋友开车，开始愉快的四人行。当晚先去吃了夜宵~营业时间看心情，哈哈。 周六周六早上睡到自然醒，吃了丰富的早午餐，出发去灵隐寺拜佛。今年超多的不顺不开心，好在很多不好的都过去了，来祈福其他愿望。好巧的是赶上了志愿者导游讲解，让我这个来了灵隐寺三趟的人，终于明白很多理论知识。佛像旁边会有两位菩萨。文殊菩萨求事业，普贤菩萨求学业。还有降魔杵有没有接触地">
+  
+  <meta name="description" content="工作中遇到的跨域问题vue本地起服务,端口号是3030vue.XXX.com:3030 代理到了 127.0.0.1(localhost)vue.XXX.com:3030 访问后端地址 mall.XXX.com 报跨域问题 如下图所示携带cookie时，需要设置如下参数,由于安全策略的影响 1axios.defaults.withCredentials &#x3D; true;&#x2F;&#x2F;Cookie跨域  123">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杭州四人游">
-<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/index.html">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/index.html">
 <meta property="og:site_name" content="HL&#39;s Blog">
-<meta property="og:description" content="周五周五就从公司出发了，走路到携程只要15分钟，然后朋友开车，开始愉快的四人行。当晚先去吃了夜宵~营业时间看心情，哈哈。 周六周六早上睡到自然醒，吃了丰富的早午餐，出发去灵隐寺拜佛。今年超多的不顺不开心，好在很多不好的都过去了，来祈福其他愿望。好巧的是赶上了志愿者导游讲解，让我这个来了灵隐寺三趟的人，终于明白很多理论知识。佛像旁边会有两位菩萨。文殊菩萨求事业，普贤菩萨求学业。还有降魔杵有没有接触地">
+<meta property="og:description" content="工作中遇到的跨域问题vue本地起服务,端口号是3030vue.XXX.com:3030 代理到了 127.0.0.1(localhost)vue.XXX.com:3030 访问后端地址 mall.XXX.com 报跨域问题 如下图所示携带cookie时，需要设置如下参数,由于安全策略的影响 1axios.defaults.withCredentials &#x3D; true;&#x2F;&#x2F;Cookie跨域  123">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/tea.jpg">
-<meta property="article:published_time" content="2020-12-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-18T08:45:20.485Z">
+<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg">
+<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A12.jpg">
+<meta property="article:published_time" content="2020-12-21T06:43:54.000Z">
+<meta property="article:modified_time" content="2020-12-23T08:11:03.349Z">
 <meta property="article:author" content="DarLing">
+<meta property="article:tag" content="跨域">
+<meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/tea.jpg">
+<meta name="twitter:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
   
@@ -169,25 +174,15 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-杭州旅行随笔" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-跨域" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
-<div class="article-gallery">
-  <div class="article-gallery-photos">
-    
-      <a class="article-gallery-img fancybox" href="/tea.jpg" rel="gallery_ckj163jro000eiwhm15w8drxg">
-        <img src="/tea.jpg" itemprop="image">
-      </a>
-    
-  </div>
-</div>
-
     
       <header class="article-header">
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      杭州四人游
+      跨域
     </h1>
   
 
@@ -195,12 +190,12 @@
     
     <div class="article-meta">
       
-	<a href="/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/" class="article-date">
-	  <time datetime="2020-12-04T16:00:00.000Z" itemprop="datePublished">2020-12-05</time>
+	<a href="/2020/12/21/%E8%B7%A8%E5%9F%9F/" class="article-date">
+	  <time datetime="2020-12-21T06:43:54.000Z" itemprop="datePublished">2020-12-21</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/lifeStyle/">lifeStyle</a>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
 
       
 	<a class="article-views">
@@ -214,10 +209,10 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="周五"><a href="#周五" class="headerlink" title="周五"></a>周五</h4><p>周五就从公司出发了，走路到携程只要15分钟，然后朋友开车，开始愉快的四人行。<br>当晚先去吃了夜宵~<br>营业时间看心情，哈哈。<br><img src="/hlblog-pages/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/mood.jpg" alt="夜宵"></p>
-<h4 id="周六"><a href="#周六" class="headerlink" title="周六"></a>周六</h4><p>周六早上睡到自然醒，吃了丰富的早午餐，出发去灵隐寺拜佛。<br>今年超多的不顺不开心，好在很多不好的都过去了，来祈福其他愿望。<br>好巧的是赶上了志愿者导游讲解，让我这个来了灵隐寺三趟的人，终于明白很多理论知识。佛像旁边会有两位菩萨。文殊菩萨求事业，普贤菩萨求学业。还有降魔杵有没有接触地面也是有讲究的，如果完全着地是不接受供奉的。还有每位佛像手持的法器都是有一些说法的。四大天王，12生肖等等。<br>师傅说：人生不可能风平浪静，一定会遇到挫折坎坷，遇到坎不要踩，跨过去就好了。所以进寺庙的门也是有讲究的，靠近门的哪边就哪个腿先跨过去，不要踩门槛。从左边绕进去，右边出，不要走回头路。<br><img src="/hlblog-pages/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/fo.jpg" style="width:500px; height: 666px; margin:0 auto"><br>然后下午去了初阳台爬山。</p>
-<h4 id="周日"><a href="#周日" class="headerlink" title="周日"></a>周日</h4><p>又是睡到自然醒呢~ 然后又来了一顿丰盛的早午饭。下午去喝茶打牌聊天。晚上吃了超级好吃的老鸭集，遇上两周年还给我们每人送了一份坚果小礼品。说明年3月份分店就会开到上海。到时候有口福了。<br><img src="/hlblog-pages/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/food.jpg" style="width:500px; height: 666px; margin:0 auto"></p>
+        <h2 id="工作中遇到的跨域问题"><a href="#工作中遇到的跨域问题" class="headerlink" title="工作中遇到的跨域问题"></a>工作中遇到的跨域问题</h2><p>vue本地起服务,端口号是3030<br>vue.XXX.com:3030 代理到了 127.0.0.1(localhost)<br>vue.XXX.com:3030 访问后端地址 mall.XXX.com 报跨域问题 如下图所示<br><img src="/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg" alt="a"><br><img src="/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A12.jpg" alt="a"><br>携带cookie时，需要设置如下参数,由于安全策略的影响</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.withCredentials = <span class="literal">true</span>;<span class="comment">//Cookie跨域</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials: <span class="keyword">true</span></span><br><span class="line">Access-Control-Allow-Origin: <span class="string">&#x27;http://vue.iqiyi.com:3030&#x27;</span> <span class="comment">// 这里不能设置*,要写死前端具体请求的域名</span></span><br><span class="line"><span class="comment">// 因为*太放纵太宽泛了(permissive)会破坏credentials的使用，所以必须设置允许跨域的头部的域名为具体某个</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -245,7 +240,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2020/12/05/杭州旅行随笔/" target="_blank" title="杭州四人游">https://darlinghan.github.io/hlblog-pages/2020/12/05/杭州旅行随笔/</a>
+          <a href="/2020/12/21/跨域/" target="_blank" title="跨域">https://darlinghan.github.io/hlblog-pages/2020/12/21/跨域/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -285,6 +280,8 @@ var a = new Donate({
       
       
         
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li></ul>
+
       
 
     </footer>
@@ -293,19 +290,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/12/08/hexo+github%20pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/12/22/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          hexo+github pages部署博客
+          小程序
         
       </div>
     </a>
   
   
-    <a href="/2020/11/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/12/18/ceshi/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">ceshi</div>
     </a>
   
 </nav>
@@ -319,7 +316,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%A8%E4%BA%94"><span class="nav-number">1.</span> <span class="nav-text">周五</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%A8%E5%85%AD"><span class="nav-number">2.</span> <span class="nav-text">周六</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%A8%E6%97%A5"><span class="nav-number">3.</span> <span class="nav-text">周日</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">工作中遇到的跨域问题</span></a></li></ol>
     
     </div>
   </aside>
