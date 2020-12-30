@@ -17,7 +17,7 @@
 <meta property="og:description" content="下载微信开发者工具https:&#x2F;&#x2F;developers.weixin.qq.com&#x2F;miniprogram&#x2F;dev&#x2F;devtools&#x2F;stable.html 小程序中访问的域名必须都配置过比如要访问一个cserver.XXX.com的域名，该域名必须在后台管理系统中配置过，并且该域名下认证过该小程序文件。 微信小程序运行报——运行环境失败(2,101)背景是在ios上测试完后，想在Android机">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-22T08:43:18.000Z">
-<meta property="article:modified_time" content="2020-12-28T03:01:51.645Z">
+<meta property="article:modified_time" content="2020-12-30T09:35:04.253Z">
 <meta property="article:author" content="DarLing">
 <meta name="twitter:card" content="summary">
   
@@ -206,7 +206,14 @@
 <h3 id="小程序中访问的域名必须都配置过"><a href="#小程序中访问的域名必须都配置过" class="headerlink" title="小程序中访问的域名必须都配置过"></a>小程序中访问的域名必须都配置过</h3><p>比如要访问一个<code>cserver.XXX.com</code>的域名，该域名必须在后台管理系统中配置过，并且该域名下认证过该小程序文件。</p>
 <h3 id="微信小程序运行报——运行环境失败-2-101"><a href="#微信小程序运行报——运行环境失败-2-101" class="headerlink" title="微信小程序运行报——运行环境失败(2,101)"></a>微信小程序运行报——运行环境失败(2,101)</h3><p>背景是在ios上测试完后，想在Android机上再测试一下，安卓机上登录后，运行开发版小程序报——运行环境失败；<br>解决方法：杀掉微信进程，重启微信就好了。（更新微信也尝试一下)</p>
 <h3 id="小程序官网解读"><a href="#小程序官网解读" class="headerlink" title="小程序官网解读"></a>小程序官网解读</h3><ol>
-<li>网页开发渲染线程和脚本线程是互斥的，而小程序中两者分开，分别运行在不同的线程中。</li>
+<li>网页开发渲染线程和脚本线程是互斥的，而小程序中两者分开，分别运行在不同的线程中。逻辑层（脚本线程）运行在</li>
+<li>小程序开发过程：<ul>
+<li>申请小程序账号</li>
+<li>安装小程序开发者工具</li>
+<li>配置项目等等</li>
+</ul>
+</li>
+<li></li>
 </ol>
 
       
