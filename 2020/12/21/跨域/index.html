@@ -18,15 +18,15 @@
 <meta property="og:site_name" content="HL&#39;s Blog">
 <meta property="og:description" content="工作中遇到的跨域问题vue本地起服务,端口号是3030vue.XXX.com:3030 代理到了 127.0.0.1(localhost)vue.XXX.com:3030 访问后端地址 mall.XXX.com 报跨域问题 如下图所示携带cookie时，需要设置如下参数,由于安全策略的影响 1axios.defaults.withCredentials &#x3D; true;&#x2F;&#x2F;Cookie跨域  123">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg">
-<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A12.jpg">
+<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg">
+<meta property="og:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A12.jpg">
 <meta property="article:published_time" content="2020-12-21T06:43:54.000Z">
 <meta property="article:modified_time" content="2020-12-23T08:11:03.349Z">
 <meta property="article:author" content="DarLing">
 <meta property="article:tag" content="跨域">
 <meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg">
+<meta name="twitter:image" content="https://darlinghan.github.io/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
   
@@ -209,7 +209,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="工作中遇到的跨域问题"><a href="#工作中遇到的跨域问题" class="headerlink" title="工作中遇到的跨域问题"></a>工作中遇到的跨域问题</h2><p>vue本地起服务,端口号是3030<br>vue.XXX.com:3030 代理到了 127.0.0.1(localhost)<br>vue.XXX.com:3030 访问后端地址 mall.XXX.com 报跨域问题 如下图所示<br><img src="/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg" alt="a"><br><img src="/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A12.jpg" alt="a"><br>携带cookie时，需要设置如下参数,由于安全策略的影响</p>
+        <h2 id="工作中遇到的跨域问题"><a href="#工作中遇到的跨域问题" class="headerlink" title="工作中遇到的跨域问题"></a>工作中遇到的跨域问题</h2><p>vue本地起服务,端口号是3030<br>vue.XXX.com:3030 代理到了 127.0.0.1(localhost)<br>vue.XXX.com:3030 访问后端地址 mall.XXX.com 报跨域问题 如下图所示<br><img src="/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A1.jpg" alt="a"><br><img src="/hlblog-pages/2020/12/21/%E8%B7%A8%E5%9F%9F/%E8%B7%A8%E5%9F%9F%E7%8E%B0%E8%B1%A12.jpg" alt="a"><br>携带cookie时，需要设置如下参数,由于安全策略的影响</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.withCredentials = <span class="literal">true</span>;<span class="comment">//Cookie跨域</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials: <span class="keyword">true</span></span><br><span class="line">Access-Control-Allow-Origin: <span class="string">&#x27;http://vue.iqiyi.com:3030&#x27;</span> <span class="comment">// 这里不能设置*,要写死前端具体请求的域名</span></span><br><span class="line"><span class="comment">// 因为*太放纵太宽泛了(permissive)会破坏credentials的使用，所以必须设置允许跨域的头部的域名为具体某个</span></span><br></pre></td></tr></table></figure>
@@ -300,9 +300,9 @@ var a = new Donate({
     </a>
   
   
-    <a href="/2020/12/18/ceshi/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/12/08/hexo+github%20pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ceshi</div>
+      <div class="article-nav-title">hexo+github pages部署博客</div>
     </a>
   
 </nav>
