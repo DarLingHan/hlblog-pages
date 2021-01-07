@@ -19,7 +19,7 @@
 <meta property="og:description" content="一、hexo环境配置 a. 安装Node.js环境  b. 安装Git环境  c. 安装Hexo npm install -g hexo-cli  d. hexo init 项目名  e. npm intsall  f. hexo generator 生成静态文件  g. hexo server 启动  h. npm install hexo-deployer-git --save 安装hexo-">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-08T11:13:15.000Z">
-<meta property="article:modified_time" content="2020-12-31T03:37:21.514Z">
+<meta property="article:modified_time" content="2021-01-07T07:58:10.639Z">
 <meta property="article:author" content="DarLing">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github pages">
@@ -268,6 +268,16 @@
 </blockquote>
 </li>
 </ul>
+<h2 id="五、hexo一些常见命令"><a href="#五、hexo一些常见命令" class="headerlink" title="五、hexo一些常见命令"></a>五、hexo一些常见命令</h2><ul>
+<li><ol>
+<li>新建草稿，不会出现在文章中 <code>hexo new draft test2</code></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将草稿中的文章发布到_post中<code>hexo publish draft test2</code></li>
+</ol>
+</li>
+</ul>
 
       
     </div>
@@ -372,7 +382,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81hexo%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">一、hexo环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-your-site-is-put-in-a-subdirectory-set-url-as-%E2%80%98http-example-com-child-39-and-root-as-%E2%80%98-child-%E2%80%98"><span class="nav-number">2.</span> <span class="nav-text">If your site is put in a subdirectory, set url as ‘http:&#x2F;&#x2F;example.com&#x2F;child&#39; and root as ‘&#x2F;child&#x2F;‘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GitHub-Pages%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">二、GitHub Pages配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%98%A0%E5%B0%84%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%9F%9F%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">三、映射自己的专属域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">四、过程中遇到的问题</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81hexo%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">一、hexo环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-your-site-is-put-in-a-subdirectory-set-url-as-%E2%80%98http-example-com-child-39-and-root-as-%E2%80%98-child-%E2%80%98"><span class="nav-number">2.</span> <span class="nav-text">If your site is put in a subdirectory, set url as ‘http:&#x2F;&#x2F;example.com&#x2F;child&#39; and root as ‘&#x2F;child&#x2F;‘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GitHub-Pages%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">二、GitHub Pages配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%98%A0%E5%B0%84%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%9F%9F%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">三、映射自己的专属域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">四、过程中遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81hexo%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">五、hexo一些常见命令</span></a></li></ol>
     
     </div>
   </aside>
@@ -387,7 +397,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 HL&#39;s Blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2021 HL&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -545,7 +555,7 @@ var a = new Donate({
             HL&#39;s Blog
           </div>
           <div class="panel-body">
-            Copyright © 2020 DarLing All Rights Reserved.
+            Copyright © 2021 DarLing All Rights Reserved.
           </div>
         </div>
       </div>
