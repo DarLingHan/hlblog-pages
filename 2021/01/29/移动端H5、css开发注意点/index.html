@@ -3,25 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>移动开发技巧 | HL&#39;s Blog</title>
+  <title>移动端h5开发注意点 | HL&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="adb" />
+  <meta name="keywords" content="cssH5安全距离" />
   
   
   
   
-  <meta name="description" content="安卓手机安装测试包 电脑数据线连接手机 手机打开调试模式（开发者选项-调试） 电脑打开控制台cmd 输入  12adb devices &#x2F;&#x2F; 查看连接的设备adb install -r -t XXX.apk &#x2F;&#x2F; 安装测试包  tips:使用Chrome:&#x2F;&#x2F;inspect调试 Android 设备上Webview">
+  <meta name="description" content="css设置iPhoneX的安全距离如果元素上设置了postion属性，需要设置在该属性上，只设置在body上会无效。也可以作用于margin-top属性上，重要的是安全距离值。 12345padding-top: constant(safe-area-inset-top);   &#x2F;&#x2F;为导航栏+状态栏的高度 88px            padding-left: constant(safe-ar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动开发技巧">
-<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/01/11/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:title" content="移动端H5开发注意点">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E3%80%81css%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/index.html">
 <meta property="og:site_name" content="HL&#39;s Blog">
-<meta property="og:description" content="安卓手机安装测试包 电脑数据线连接手机 手机打开调试模式（开发者选项-调试） 电脑打开控制台cmd 输入  12adb devices &#x2F;&#x2F; 查看连接的设备adb install -r -t XXX.apk &#x2F;&#x2F; 安装测试包  tips:使用Chrome:&#x2F;&#x2F;inspect调试 Android 设备上Webview">
+<meta property="og:description" content="css设置iPhoneX的安全距离如果元素上设置了postion属性，需要设置在该属性上，只设置在body上会无效。也可以作用于margin-top属性上，重要的是安全距离值。 12345padding-top: constant(safe-area-inset-top);   &#x2F;&#x2F;为导航栏+状态栏的高度 88px            padding-left: constant(safe-ar">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-11T11:37:33.000Z">
-<meta property="article:modified_time" content="2021-01-11T11:44:26.418Z">
+<meta property="article:published_time" content="2021-01-29T11:45:10.000Z">
+<meta property="article:modified_time" content="2021-02-01T12:40:46.162Z">
 <meta property="article:author" content="DarLing">
-<meta property="article:tag" content="adb">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="H5">
+<meta property="article:tag" content="安全距离">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
@@ -170,7 +172,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-移动开发技巧" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-移动端H5、css开发注意点" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -178,7 +180,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      移动开发技巧
+      移动端H5开发注意点
     </h1>
   
 
@@ -186,12 +188,12 @@
     
     <div class="article-meta">
       
-	<a href="/2021/01/11/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="article-date">
-	  <time datetime="2021-01-11T11:37:33.000Z" itemprop="datePublished">2021-01-11</time>
+	<a href="/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E3%80%81css%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/" class="article-date">
+	  <time datetime="2021-01-29T11:45:10.000Z" itemprop="datePublished">2021-01-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/android-ios/">android/ios</a>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
 
       
 	<a class="article-views">
@@ -205,17 +207,24 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="安卓手机安装测试包"><a href="#安卓手机安装测试包" class="headerlink" title="安卓手机安装测试包"></a>安卓手机安装测试包</h3><ol>
-<li>电脑数据线连接手机</li>
-<li>手机打开调试模式（开发者选项-调试）</li>
-<li>电脑打开控制台cmd</li>
-<li>输入</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb devices <span class="comment">// 查看连接的设备</span></span><br><span class="line">adb install -r -t XXX.apk <span class="comment">// 安装测试包</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>tips:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/66896bec620e">使用Chrome://inspect调试 Android 设备上Webview</a></p>
-</blockquote>
+        <h3 id="css设置iPhoneX的安全距离"><a href="#css设置iPhoneX的安全距离" class="headerlink" title="css设置iPhoneX的安全距离"></a>css设置iPhoneX的安全距离</h3><p>如果元素上设置了<code>postion</code>属性，需要设置在该属性上，只设置在body上会无效。<br>也可以作用于<code>margin-top</code>属性上，重要的是安全距离值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">padding-top</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-top</span>);   //为导航栏+状态栏的高度 88<span class="selector-tag">px</span>            </span><br><span class="line"><span class="selector-tag">padding-left</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-left</span>);   //如果未竖屏时为0                </span><br><span class="line"><span class="selector-tag">padding-right</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-right</span>); //如果未竖屏时为0                </span><br><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-bottom</span>);//为底下圆弧的高度 34<span class="selector-tag">px</span> </span><br><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">env</span>(<span class="selector-tag">safe-area-inset-bottom</span>);    </span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>tips: 注意：当 viewport-fit=contain 时 env() 是不起作用的，必须要配合 viewport-fit=cover 使用。对于不支持env() 的浏览器，浏览器将会忽略它。</p>
+</blockquote>
+<blockquote>
+<p>tips:之前使用的 constant() 在 iOS11.2 之后就不能使用的，但我们还是需要做向后兼容，像这样：<br>注意：env() 跟 constant() 需要同时存在，而且顺序不能换。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">constant</span>( <span class="selector-tag">safe-area-inset-bottom</span>); <span class="comment">/* 兼容 iOS &lt; 11.2 */</span></span><br><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">env</span>( <span class="selector-tag">safe-area-inset-bottom</span>); <span class="comment">/* 兼容 iOS &gt;= 11.2 */</span></span><br></pre></td></tr></table></figure>
+<p>新增 viweport-fit 属性，使得页面内容完全覆盖整个窗口：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, viewport-fit=cover&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="禁止h5页面在移动端左右拖动"><a href="#禁止h5页面在移动端左右拖动" class="headerlink" title="禁止h5页面在移动端左右拖动"></a>禁止h5页面在移动端左右拖动</h3><p>后来发现是因为自己设置某个<code>div</code>元素样式的宽度<code>100vw</code>,没有设置<code>box-sizing</code>,导致出现了横向滚动条.</p>
+<h3 id="顶部标题或底部下单等按钮开发时注意fixed"><a href="#顶部标题或底部下单等按钮开发时注意fixed" class="headerlink" title="顶部标题或底部下单等按钮开发时注意fixed"></a>顶部标题或底部下单等按钮开发时注意fixed</h3><p> 不要每次测试提个bug,开发过程中要有意识。</p>
+<h3 id="移动端1px适配"><a href="#移动端1px适配" class="headerlink" title="移动端1px适配"></a>移动端<code>1px</code>适配</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-bottom-1px</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">    [data-dpr=&quot;1&quot;] &amp; &#123;</span><br><span class="line">        <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#eee</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-attr">[data-dpr=<span class="string">&quot;3&quot;</span>]</span> &amp; &#123;</span><br><span class="line">        <span class="attribute">border-bottom</span>: <span class="number">3px</span> solid <span class="number">#eee</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="避免300毫秒的延迟"><a href="#避免300毫秒的延迟" class="headerlink" title="避免300毫秒的延迟"></a>避免300毫秒的延迟</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 避免点击300ms延迟 */</span></span><br><span class="line">*&#123; <span class="attribute">touch-action</span>: manipulation;&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -243,7 +252,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2021/01/11/移动开发技巧/" target="_blank" title="移动开发技巧">https://darlinghan.github.io/hlblog-pages/2021/01/11/移动开发技巧/</a>
+          <a href="/2021/01/29/移动端H5、css开发注意点/" target="_blank" title="移动端H5开发注意点">https://darlinghan.github.io/hlblog-pages/2021/01/29/移动端H5、css开发注意点/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -283,7 +292,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/" rel="tag">adb</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB/" rel="tag">安全距离</a></li></ul>
 
       
 
@@ -293,19 +302,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2021/01/11/%E8%B7%B3%E6%9D%BF%E6%9C%BA%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          跳板机（堡垒机）使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/30/commonJs%E5%92%8Cimport%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/01/29/git%E6%89%93tag/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">exports、module.exports、export、export default的区别</div>
+      <div class="article-nav-title">git打tag</div>
     </a>
   
 </nav>
@@ -319,7 +319,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">安卓手机安装测试包</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css%E8%AE%BE%E7%BD%AEiPhoneX%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.</span> <span class="nav-text">css设置iPhoneX的安全距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E6%AD%A2h5%E9%A1%B5%E9%9D%A2%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">禁止h5页面在移动端左右拖动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E9%83%A8%E6%A0%87%E9%A2%98%E6%88%96%E5%BA%95%E9%83%A8%E4%B8%8B%E5%8D%95%E7%AD%89%E6%8C%89%E9%92%AE%E5%BC%80%E5%8F%91%E6%97%B6%E6%B3%A8%E6%84%8Ffixed"><span class="nav-number">3.</span> <span class="nav-text">顶部标题或底部下单等按钮开发时注意fixed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%80%82%E9%85%8D"><span class="nav-number">4.</span> <span class="nav-text">移动端1px适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%BF%E5%85%8D300%E6%AF%AB%E7%A7%92%E7%9A%84%E5%BB%B6%E8%BF%9F"><span class="nav-number">5.</span> <span class="nav-text">避免300毫秒的延迟</span></a></li></ol>
     
     </div>
   </aside>
