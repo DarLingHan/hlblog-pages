@@ -3,27 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>移动端h5开发、css开发注意点 | HL&#39;s Blog</title>
+  <title>移动端h5开发技巧 | HL&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="cssH5安全距离" />
+  <meta name="keywords" content="H5" />
   
   
   
   
-  <meta name="description" content="css设置iPhoneX的安全距离如果元素上设置了postion属性，需要设置在该属性上，只设置在body上会无效。也可以作用于margin-top属性上，重要的是安全距离值。 12345padding-top: constant(safe-area-inset-top);   &#x2F;&#x2F;为导航栏+状态栏的高度 88px            padding-left: constant(safe-ar">
+  <meta name="description" content="移动端H5上下拖拽，导致背景跟在滑动设置body&amp;#123; overflow:hidden &amp;#125; 就可以了  后来发现iphone6机型上并不生效，向下拖拽会看到网页来源，向上拉会看到背景颜色，最后通过设置整个div的position:fixed;不允许上下滑动解决的。  移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。原因是，键盘拉起的时候，整个webview向上滚动了，无法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动端H5开发、css开发注意点">
-<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E3%80%81css%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/index.html">
+<meta property="og:title" content="移动端H5开发技巧">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="HL&#39;s Blog">
-<meta property="og:description" content="css设置iPhoneX的安全距离如果元素上设置了postion属性，需要设置在该属性上，只设置在body上会无效。也可以作用于margin-top属性上，重要的是安全距离值。 12345padding-top: constant(safe-area-inset-top);   &#x2F;&#x2F;为导航栏+状态栏的高度 88px            padding-left: constant(safe-ar">
+<meta property="og:description" content="移动端H5上下拖拽，导致背景跟在滑动设置body&amp;#123; overflow:hidden &amp;#125; 就可以了  后来发现iphone6机型上并不生效，向下拖拽会看到网页来源，向上拉会看到背景颜色，最后通过设置整个div的position:fixed;不允许上下滑动解决的。  移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。原因是，键盘拉起的时候，整个webview向上滚动了，无法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-29T11:45:10.000Z">
-<meta property="article:modified_time" content="2021-03-31T10:20:36.151Z">
+<meta property="article:modified_time" content="2021-04-15T10:10:25.113Z">
 <meta property="article:author" content="DarLing">
-<meta property="article:tag" content="css">
 <meta property="article:tag" content="H5">
-<meta property="article:tag" content="安全距离">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
@@ -172,7 +170,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-移动端H5、css开发注意点" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-移动端H5开发技巧" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -180,7 +178,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      移动端H5开发、css开发注意点
+      移动端H5开发技巧
     </h1>
   
 
@@ -188,7 +186,7 @@
     
     <div class="article-meta">
       
-	<a href="/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E3%80%81css%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/" class="article-date">
+	<a href="/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="article-date">
 	  <time datetime="2021-01-29T11:45:10.000Z" itemprop="datePublished">2021-01-29</time>
 	</a>
 
@@ -207,50 +205,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="css设置iPhoneX的安全距离"><a href="#css设置iPhoneX的安全距离" class="headerlink" title="css设置iPhoneX的安全距离"></a>css设置iPhoneX的安全距离</h3><p>如果元素上设置了<code>postion</code>属性，需要设置在该属性上，只设置在body上会无效。<br>也可以作用于<code>margin-top</code>属性上，重要的是安全距离值。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">padding-top</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-top</span>);   //为导航栏+状态栏的高度 88<span class="selector-tag">px</span>            </span><br><span class="line"><span class="selector-tag">padding-left</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-left</span>);   //如果未竖屏时为0                </span><br><span class="line"><span class="selector-tag">padding-right</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-right</span>); //如果未竖屏时为0                </span><br><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-bottom</span>);//为底下圆弧的高度 34<span class="selector-tag">px</span> </span><br><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">env</span>(<span class="selector-tag">safe-area-inset-bottom</span>);    </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>tips: 注意：当 viewport-fit=contain 时 env() 是不起作用的，必须要配合 viewport-fit=cover 使用。对于不支持env() 的浏览器，浏览器将会忽略它。</p>
-</blockquote>
-<blockquote>
-<p>tips:之前使用的 constant() 在 iOS11.2 之后就不能使用的，但我们还是需要做向后兼容，像这样：<br>注意：env() 跟 constant() 需要同时存在，而且顺序不能换。</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">constant</span>( <span class="selector-tag">safe-area-inset-bottom</span>); <span class="comment">/* 兼容 iOS &lt; 11.2 */</span></span><br><span class="line"><span class="selector-tag">padding-bottom</span>: <span class="selector-tag">env</span>( <span class="selector-tag">safe-area-inset-bottom</span>); <span class="comment">/* 兼容 iOS &gt;= 11.2 */</span></span><br></pre></td></tr></table></figure>
-<p>新增 viweport-fit 属性，使得页面内容完全覆盖整个窗口：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, viewport-fit=cover&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="禁止h5页面在移动端左右拖动"><a href="#禁止h5页面在移动端左右拖动" class="headerlink" title="禁止h5页面在移动端左右拖动"></a>禁止h5页面在移动端左右拖动</h3><p>后来发现是因为自己设置某个<code>div</code>元素样式的宽度<code>100vw</code>,没有设置<code>box-sizing</code>,导致出现了横向滚动条.</p>
-<h3 id="顶部标题或底部下单等按钮开发时注意fixed"><a href="#顶部标题或底部下单等按钮开发时注意fixed" class="headerlink" title="顶部标题或底部下单等按钮开发时注意fixed"></a>顶部标题或底部下单等按钮开发时注意fixed</h3><p> 不要每次测试提个bug,开发过程中要有意识。</p>
-<h3 id="移动端1px适配"><a href="#移动端1px适配" class="headerlink" title="移动端1px适配"></a>移动端<code>1px</code>适配</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-bottom-1px</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">    [data-dpr=&quot;1&quot;] &amp; &#123;</span><br><span class="line">        <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#eee</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-attr">[data-dpr=<span class="string">&quot;3&quot;</span>]</span> &amp; &#123;</span><br><span class="line">        <span class="attribute">border-bottom</span>: <span class="number">3px</span> solid <span class="number">#eee</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="避免300毫秒的延迟"><a href="#避免300毫秒的延迟" class="headerlink" title="避免300毫秒的延迟"></a>避免300毫秒的延迟</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 避免点击300ms延迟 */</span></span><br><span class="line">*&#123; <span class="attribute">touch-action</span>: manipulation;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="内容css超出三行-三个点展示"><a href="#内容css超出三行-三个点展示" class="headerlink" title="内容css超出三行...三个点展示"></a>内容css超出三行<code>...</code>三个点展示</h3><ol>
-<li>背景: 有兼容性问题<br>在谷歌、QQ浏览器、搜狗浏览器，360浏览器的极速模式下是正常显示省略号的，在火狐、ie、360兼容模式下是没有显示省略号的。</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>在开发过程中，发现在苹果手机设备上，内容超出时，不能被隐藏。<br>解决方法： 发现是因为样式没有穿透的原因，需要用到<code>Vue</code>的深度选择器<code>/deep/</code></li>
-</ol>
-<blockquote>
-<p>tips: vue的深度选择器<code>&gt;&gt;&gt;</code>或<code>/deep/</code>或<code>::v-deep</code>的用法,如果你希望 scoped 样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用 &gt;&gt;&gt; 操作符。有些像 Sass 之类的预处理器无法正确解析 &gt;&gt;&gt;。这种情况下你可以使用 /deep/ 或 ::v-deep 操作符取而代之——两者都是 &gt;&gt;&gt; 的别名，同样可以正常工作。</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: .<span class="number">15rem</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-family</span>: PingFangSC-Regular;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">14rem</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#777777</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: .<span class="number">2rem</span>;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: initial;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    /deep/ p,</span><br><span class="line">    /<span class="selector-tag">deep</span>/ <span class="selector-tag">span</span>&#123;</span><br><span class="line">      <span class="attribute">display</span>: initial;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="移动端H5上下拖拽，导致背景跟在滑动"><a href="#移动端H5上下拖拽，导致背景跟在滑动" class="headerlink" title="移动端H5上下拖拽，导致背景跟在滑动"></a>移动端H5上下拖拽，导致背景跟在滑动</h3><p>设置<code>body&#123; overflow:hidden &#125;</code> 就可以了</p>
+        <h3 id="移动端H5上下拖拽，导致背景跟在滑动"><a href="#移动端H5上下拖拽，导致背景跟在滑动" class="headerlink" title="移动端H5上下拖拽，导致背景跟在滑动"></a>移动端H5上下拖拽，导致背景跟在滑动</h3><p>设置<code>body&#123; overflow:hidden &#125;</code> 就可以了</p>
 <ul>
 <li>后来发现iphone6机型上并不生效，向下拖拽会看到网页来源，向上拉会看到背景颜色，最后通过设置整个<code>div</code>的<code>position:fixed;</code>不允许上下滑动解决的。</li>
 </ul>
 <h3 id="移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。"><a href="#移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。" class="headerlink" title="移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。"></a>移动端h5页拉起键盘，<code>fixed</code>元素定位失效，并不能吸顶。</h3><p>原因是，键盘拉起的时候，整个webview向上滚动了，无法控制webview的不允许滚动。</p>
 <ul>
-<li>解决方案1，键盘拉起时，下面的元素不允许滚动，也就是禁掉页面的m<code>ousemove</code>事件。</li>
+<li>解决方案1，键盘拉起时，下面的元素不允许滚动，也就是禁掉页面的<code>mousemove</code>事件。</li>
 <li>解决方案2，或者用户触碰到键盘以外区域，就让<code>input</code>失焦调，从而达到页面不可滚动的视觉差。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Q.ua.IOS) &#123;</span><br><span class="line">  <span class="comment">//阻止默认行为函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">preventDefault</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.body.addEventListener(</span><br><span class="line">    <span class="string">&quot;touchmove&quot;</span>,</span><br><span class="line">    () =&gt; &#123;</span><br><span class="line">      <span class="built_in">this</span>.$refs.input.blur();</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      passive: <span class="literal">false</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// window.addEventListener(&quot;focusin&quot;, (ev) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   window.scrollTo(0, 0);</span></span><br><span class="line">  <span class="comment">//   this.disabledScroll = true;</span></span><br><span class="line">  <span class="comment">//   // 禁用触摸滚动页面</span></span><br><span class="line">  <span class="comment">//   // document.body.addEventListener(&quot;touchmove&quot;, preventDefault, &#123;</span></span><br><span class="line">  <span class="comment">//   //   passive: false,</span></span><br><span class="line">  <span class="comment">//   // &#125;);</span></span><br><span class="line">  <span class="comment">// &#125;);</span></span><br><span class="line">  <span class="comment">// window.addEventListener(&quot;focusout&quot;, () =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   this.disabledScroll = false;</span></span><br><span class="line">  <span class="comment">//   // 恢复触摸滚动页面</span></span><br><span class="line">  <span class="comment">//   document.body.removeEventListener(&quot;touchmove&quot;, preventDefault, &#123;</span></span><br><span class="line">  <span class="comment">//     passive: false,</span></span><br><span class="line">  <span class="comment">//   &#125;);</span></span><br><span class="line">  <span class="comment">// &#125;);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h3 id="img标签的图片，保持原有图片比例尺寸，裁剪"><a href="#img标签的图片，保持原有图片比例尺寸，裁剪" class="headerlink" title="img标签的图片，保持原有图片比例尺寸，裁剪"></a><code>img</code>标签的图片，保持原有图片比例尺寸，裁剪</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1.11rem</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1.275rem</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">object-fit</span>: cover;</span><br><span class="line">    <span class="attribute">object-position</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="提示弹框显示时，禁止背景滑动，同时背景固定到滑动的位置，而不会因为设置position-fixed跳到顶部"><a href="#提示弹框显示时，禁止背景滑动，同时背景固定到滑动的位置，而不会因为设置position-fixed跳到顶部" class="headerlink" title="提示弹框显示时，禁止背景滑动，同时背景固定到滑动的位置，而不会因为设置position: fixed跳到顶部"></a>提示弹框显示时，禁止背景滑动，同时背景固定到滑动的位置，而不会因为设置<code>position: fixed</code>跳到顶部</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ****showDialog时****</span></span><br><span class="line"><span class="comment">// 1.设置body的position: fixed; </span></span><br><span class="line"><span class="comment">// 2. 记录滚动的距离 window.scrollY</span></span><br><span class="line">Q.$(<span class="string">&quot;body&quot;</span>).css(<span class="string">&quot;top&quot;</span>, -<span class="built_in">window</span>.scrollY + <span class="string">&quot;px&quot;</span>);</span><br><span class="line">Q.$(<span class="string">&quot;body&quot;</span>).css(<span class="string">&quot;position&quot;</span>, <span class="string">&quot;fixed&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ***hideDialog时****</span></span><br><span class="line"><span class="comment">// 恢复body的默认属性</span></span><br><span class="line">Q.$(<span class="string">&quot;body&quot;</span>).css(<span class="string">&quot;position&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="built_in">window</span>.scrollTo(<span class="number">0</span>, -<span class="built_in">parseInt</span>(Q.$(<span class="string">&quot;body&quot;</span>).css(<span class="string">&quot;top&quot;</span>)));</span><br><span class="line">Q.$(<span class="string">&quot;body&quot;</span>).css(<span class="string">&quot;top&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
@@ -278,7 +245,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2021/01/29/移动端H5、css开发注意点/" target="_blank" title="移动端H5开发、css开发注意点">https://darlinghan.github.io/hlblog-pages/2021/01/29/移动端H5、css开发注意点/</a>
+          <a href="/2021/01/29/移动端H5开发技巧/" target="_blank" title="移动端H5开发技巧">https://darlinghan.github.io/hlblog-pages/2021/01/29/移动端H5开发技巧/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -318,7 +285,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/" rel="tag">H5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB/" rel="tag">安全距离</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/" rel="tag">H5</a></li></ul>
 
       
 
@@ -354,7 +321,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css%E8%AE%BE%E7%BD%AEiPhoneX%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.</span> <span class="nav-text">css设置iPhoneX的安全距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E6%AD%A2h5%E9%A1%B5%E9%9D%A2%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B7%A6%E5%8F%B3%E6%8B%96%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">禁止h5页面在移动端左右拖动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E9%83%A8%E6%A0%87%E9%A2%98%E6%88%96%E5%BA%95%E9%83%A8%E4%B8%8B%E5%8D%95%E7%AD%89%E6%8C%89%E9%92%AE%E5%BC%80%E5%8F%91%E6%97%B6%E6%B3%A8%E6%84%8Ffixed"><span class="nav-number">3.</span> <span class="nav-text">顶部标题或底部下单等按钮开发时注意fixed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%80%82%E9%85%8D"><span class="nav-number">4.</span> <span class="nav-text">移动端1px适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%BF%E5%85%8D300%E6%AF%AB%E7%A7%92%E7%9A%84%E5%BB%B6%E8%BF%9F"><span class="nav-number">5.</span> <span class="nav-text">避免300毫秒的延迟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AE%B9css%E8%B6%85%E5%87%BA%E4%B8%89%E8%A1%8C-%E4%B8%89%E4%B8%AA%E7%82%B9%E5%B1%95%E7%A4%BA"><span class="nav-number">6.</span> <span class="nav-text">内容css超出三行...三个点展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E4%B8%8A%E4%B8%8B%E6%8B%96%E6%8B%BD%EF%BC%8C%E5%AF%BC%E8%87%B4%E8%83%8C%E6%99%AF%E8%B7%9F%E5%9C%A8%E6%BB%91%E5%8A%A8"><span class="nav-number">7.</span> <span class="nav-text">移动端H5上下拖拽，导致背景跟在滑动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFh5%E9%A1%B5%E6%8B%89%E8%B5%B7%E9%94%AE%E7%9B%98%EF%BC%8Cfixed%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E5%A4%B1%E6%95%88%EF%BC%8C%E5%B9%B6%E4%B8%8D%E8%83%BD%E5%90%B8%E9%A1%B6%E3%80%82"><span class="nav-number">8.</span> <span class="nav-text">移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img%E6%A0%87%E7%AD%BE%E7%9A%84%E5%9B%BE%E7%89%87%EF%BC%8C%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9C%89%E5%9B%BE%E7%89%87%E6%AF%94%E4%BE%8B%E5%B0%BA%E5%AF%B8%EF%BC%8C%E8%A3%81%E5%89%AA"><span class="nav-number">9.</span> <span class="nav-text">img标签的图片，保持原有图片比例尺寸，裁剪</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E4%B8%8A%E4%B8%8B%E6%8B%96%E6%8B%BD%EF%BC%8C%E5%AF%BC%E8%87%B4%E8%83%8C%E6%99%AF%E8%B7%9F%E5%9C%A8%E6%BB%91%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">移动端H5上下拖拽，导致背景跟在滑动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFh5%E9%A1%B5%E6%8B%89%E8%B5%B7%E9%94%AE%E7%9B%98%EF%BC%8Cfixed%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E5%A4%B1%E6%95%88%EF%BC%8C%E5%B9%B6%E4%B8%8D%E8%83%BD%E5%90%B8%E9%A1%B6%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86%E6%98%BE%E7%A4%BA%E6%97%B6%EF%BC%8C%E7%A6%81%E6%AD%A2%E8%83%8C%E6%99%AF%E6%BB%91%E5%8A%A8%EF%BC%8C%E5%90%8C%E6%97%B6%E8%83%8C%E6%99%AF%E5%9B%BA%E5%AE%9A%E5%88%B0%E6%BB%91%E5%8A%A8%E7%9A%84%E4%BD%8D%E7%BD%AE%EF%BC%8C%E8%80%8C%E4%B8%8D%E4%BC%9A%E5%9B%A0%E4%B8%BA%E8%AE%BE%E7%BD%AEposition-fixed%E8%B7%B3%E5%88%B0%E9%A1%B6%E9%83%A8"><span class="nav-number">3.</span> <span class="nav-text">提示弹框显示时，禁止背景滑动，同时背景固定到滑动的位置，而不会因为设置position: fixed跳到顶部</span></a></li></ol>
     
     </div>
   </aside>
