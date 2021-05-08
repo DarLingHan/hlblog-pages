@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>interview-xmly | HL&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="喜马拉雅" />
+  
+  
+  
+  
+  <meta name="description" content="for-of、foreach、for in、map的区别 tips: 检查对象本身的属性hasOwnProperty()或者getOwnPropertyNames()或者propertyIsEnumerable   forEach——&gt;&gt;   只能遍历数组; 对数组的每个元素都执行指定的函数; 返回值undefined; 不能使用break跳出循环,使用return跳出本次循环，不会跳">
+<meta property="og:type" content="article">
+<meta property="og:title" content="interview-xmly">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/05/04/interview-xmly/index.html">
+<meta property="og:site_name" content="HL&#39;s Blog">
+<meta property="og:description" content="for-of、foreach、for in、map的区别 tips: 检查对象本身的属性hasOwnProperty()或者getOwnPropertyNames()或者propertyIsEnumerable   forEach——&gt;&gt;   只能遍历数组; 对数组的每个元素都执行指定的函数; 返回值undefined; 不能使用break跳出循环,使用return跳出本次循环，不会跳">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-04T13:52:45.000Z">
+<meta property="article:modified_time" content="2021-05-07T10:20:34.674Z">
+<meta property="article:author" content="DarLing">
+<meta property="article:tag" content="喜马拉雅">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/icon_bg.jpg">
+  <link rel="apple-touch-icon" href="/css/images/icon_bg.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/icon_bg.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-interview-xmly" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      interview-xmly
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/05/04/interview-xmly/" class="article-date">
+	  <time datetime="2021-05-04T13:52:45.000Z" itemprop="datePublished">2021-05-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="for-of、foreach、for-in、map的区别"><a href="#for-of、foreach、for-in、map的区别" class="headerlink" title="for-of、foreach、for in、map的区别"></a>for-of、foreach、for in、map的区别</h3><blockquote>
+<p>tips: 检查对象本身的属性<code>hasOwnProperty()</code>或者<code>getOwnPropertyNames()</code>或者<code>propertyIsEnumerable</code></p>
+</blockquote>
+<ul>
+<li>forEach——&gt;&gt;</li>
+</ul>
+<ol>
+<li>只能遍历数组;</li>
+<li>对数组的每个元素都执行指定的函数;</li>
+<li>返回值undefined;</li>
+<li>不能使用break跳出循环,使用return跳出本次循环，不会跳出循环;</li>
+</ol>
+<ul>
+<li>for in——&gt;&gt;</li>
+</ul>
+<ol>
+<li>以任意顺序遍历一个对象的属性(除Symbol以外);</li>
+<li>可以使用break跳出循环;</li>
+<li>代码中使用return会报错(<code>VM852:4 Uncaught SyntaxError: Illegal return statement</code>);</li>
+<li>index索引为字符串数字类型;遍历数组所有的可枚举属性,包括原型上的。</li>
+</ol>
+<ul>
+<li>for of——&gt;&gt;</li>
+</ul>
+<ol>
+<li>仅支持可迭代对象(Array、Map、Set、String、TypedArray、arguments对象等等也就是类数组对象也就是具有iterator接口);</li>
+<li>不能使用return(<code>VM852:4 Uncaught SyntaxError: Illegal return statement</code>)</li>
+</ol>
+<ul>
+<li>map——&gt;&gt;</li>
+</ul>
+<ol>
+<li>只能遍历数组;返回创建的新数组,不改变元素组</li>
+</ol>
+<p>案例1:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item, index, thisArr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="comment">// return跳出本次循环 不会跳出循环</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(thisArr);</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)</span><br><span class="line">arr.some(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item == <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span> <span class="comment">// some当return true时跳出整个循环</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)</span><br><span class="line">arr.every(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item == <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span> <span class="comment">// every当return false跳出整个选好</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(item)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>案例2:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// let arrObject = &#123;</span></span><br><span class="line"><span class="comment">//     name: &#x27;han&#x27;,</span></span><br><span class="line"><span class="comment">//     age: &#x27;18&#x27;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// let arrString = &#x27;han&#x27;</span></span><br><span class="line"><span class="comment">// for (let i in arrObject) &#123;</span></span><br><span class="line"><span class="comment">//     if (i == &#x27;age&#x27;) &#123;</span></span><br><span class="line"><span class="comment">//         return</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     console.log(&#x27;in&#x27;, i)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// for (let i of arrString) &#123;</span></span><br><span class="line"><span class="comment">//     console.log(&#x27;of&#x27;, i)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>案例3</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arrMap = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arrMap2 = &#123;</span><br><span class="line">    name: <span class="string">&#x27;han&#x27;</span>,</span><br><span class="line">    age: <span class="string">&#x27;19&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> resArr = arrMap.map(<span class="function">(<span class="params">item, index, thisArr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (item == <span class="number">2</span>) &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">    <span class="keyword">return</span> item * <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">let</span> resArr2 = arrMap2.map(<span class="function">(<span class="params">item, index, thisArr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item, index)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(resArr)</span><br><span class="line"><span class="built_in">console</span>.log(resArr2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="有三个模块a、b、c，其中a模块和b模块会先后加载c模块，请问这两次加载有什么区别？"><a href="#有三个模块a、b、c，其中a模块和b模块会先后加载c模块，请问这两次加载有什么区别？" class="headerlink" title="有三个模块a、b、c，其中a模块和b模块会先后加载c模块，请问这两次加载有什么区别？"></a>有三个模块a、b、c，其中a模块和b模块会先后加载c模块，请问这两次加载有什么区别？</h3><p>应该是考察commonJs和import的区别，详见我的另一篇文章<a href="/2020/12/30/commonJs%E5%92%8Cimport%E7%9A%84%E5%8C%BA%E5%88%AB/" title="commonJs和import的区别">commonJs和import的区别</a><br>应该也和这篇文章有关 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/izPqa7sn3bJ73iEJkUW64w">npm install 原理分析</a></p>
+<h3 id="什么是闭包，构成闭包依赖了哪些语言特性"><a href="#什么是闭包，构成闭包依赖了哪些语言特性" class="headerlink" title="什么是闭包，构成闭包依赖了哪些语言特性?"></a>什么是闭包，构成闭包依赖了哪些语言特性?</h3><ul>
+<li>就是函数外部能够读取函数内部的变量，那这个函数就是闭包；依赖了js的局部变量和全部变量的特性，函数里可以访问全局变量，但是不能外部不能访问局部变量。</li>
+<li>闭包的用途：</li>
+</ul>
+<ol>
+<li>可以读取函数内部的变量；让这些变量的值始终保持在内存中。</li>
+</ol>
+<h3 id="new关键字做了什么"><a href="#new关键字做了什么" class="headerlink" title="new关键字做了什么"></a>new关键字做了什么</h3><ul>
+<li>创建一个新对象</li>
+<li>将构造函数的原型对象<code>prototype</code>指向给这个对象的隐式<code>proto</code></li>
+<li>将构造函数的属性、方法复制给这个对象</li>
+<li>返回这个对象（如果没有返回值的话）</li>
+</ul>
+<p>手写实现new的过程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newFn</span>(<span class="params">Obj, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newobj = <span class="built_in">Object</span>.create(Obj.prototype)</span><br><span class="line">    newobj.apply(newobj, args)</span><br><span class="line">    <span class="keyword">return</span> newobj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tips: 更新一个小问题当构造函数中的<code>this</code>碰到<code>return</code>时,如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。<br>还有一点就是虽然null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">this</span>.user = <span class="string">&#x27;han&#x27;</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn();  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">// han</span></span><br><span class="line"><span class="comment">// 案例2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">this</span>.user = <span class="string">&#x27;han&#x27;</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn();  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">// han</span></span><br><span class="line"><span class="comment">// 案例3</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">this</span>.user = <span class="string">&#x27;han&#x27;</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn();  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">// han</span></span><br><span class="line"><span class="comment">// 案例4</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">this</span>.user = <span class="string">&#x27;han&#x27;</span>;  </span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn();  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 案例5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">this</span>.user = <span class="string">&#x27;han&#x27;</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn();  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>访问所以构造函数的属性和方法<br>一条实列与原型对象之间的联调<br>创建一个构造函数就会有一个<code>protoType</code>指向它的原型对象，而原型对象又有一个<code>constructor</code>指向它的构造函数。构造函数的实例有一个隐式<code>_proto_</code>指向构造函数的原型对象。<br>原型对象的属性、方法被所有实例所公用；构造函数中的属性、方法是实例的属性和方法，只出现在实例中。</p>
+<p>举例——构造函数3想同时拥有构造函数1，2的属性和方法，那么就将构造函数1的实例指向构造函数2的原型对象，将构造函数2的实例指向构造函数3的原型对象，那么就可以在构造函数3的实例中访问构造函数1、构造函数2的属性方法了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;f1&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">f1.prototype.getF1Name = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;f2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">f2.prototype = <span class="keyword">new</span> f1()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;f3&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">f3.prototype = <span class="keyword">new</span> f2()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allF1F2F3 = <span class="keyword">new</span> f3()</span><br><span class="line"><span class="built_in">console</span>.log(allF1F2F3.getF1Name())</span><br></pre></td></tr></table></figure>
+<h3 id="this的问题"><a href="#this的问题" class="headerlink" title="this的问题"></a><code>this</code>的问题</h3><ul>
+<li>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</li>
+</ul>
+<h3 id="简述call-apply的区别"><a href="#简述call-apply的区别" class="headerlink" title="简述call/apply的区别"></a>简述call/apply的区别</h3><ul>
+<li>apply (新this对象,参数数组)</li>
+<li>call (新this对象,参数,参数,参数…)</li>
+<li>bind 则是返回改变了this指向后的函数，不执行该函数。</li>
+</ul>
+<h3 id="setTimeout和setInterval做轮询的区别"><a href="#setTimeout和setInterval做轮询的区别" class="headerlink" title="setTimeout和setInterval做轮询的区别"></a>setTimeout和setInterval做轮询的区别</h3><ul>
+<li><code>setTimeout</code> 延时器</li>
+<li><code>setInterval</code> 定时器</li>
+</ul>
+<h3 id="手写实现防抖和截流"><a href="#手写实现防抖和截流" class="headerlink" title="手写实现防抖和截流"></a>手写实现防抖和截流</h3><ul>
+<li>防抖 一定时间内只会触发一次，多次操作，会重新计时，直到最后只执行一次。</li>
+<li>节流 以一定频率执行事件，至少执行一次。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span> (<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(fn, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doTh</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;当前位置&#x27;</span>, scrollTop)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onscroll = debounce(doTh, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                fn()</span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;, delay)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doTh</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;当前位置&#x27;</span>, scrollTop)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onscroll = throttle(doTh, <span class="number">1000</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="bind函数实现"><a href="#bind函数实现" class="headerlink" title="bind函数实现"></a>bind函数实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;han&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">var</span> greeting = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.value = <span class="string">&#x27;ling&#x27;</span></span><br><span class="line">    <span class="keyword">let</span> params = [].slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`hello <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span> <span class="subst">$&#123;params&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">var</span> fn = <span class="built_in">arguments</span>[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">var</span> newBind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> allArgs = args.concat([].slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="comment">//new调用就绑定到this上,否则就绑定到传入的objThis上</span></span><br><span class="line">        that.apply(<span class="built_in">this</span> <span class="keyword">instanceof</span> newBind ? <span class="built_in">this</span> : fn, allArgs)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newBind</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greeting.bind(obj, <span class="number">20</span>)(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">greeting.myBind(obj, <span class="number">24</span>)(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// new 操作符就是this指向了window 所以undefined</span></span><br><span class="line"><span class="comment">// var objFuc = doSth.bind(obj, 20)</span></span><br><span class="line"><span class="comment">// var objFuc = doSth.myBind(obj, 20)</span></span><br><span class="line"><span class="comment">// var newFuc = new objFuc()</span></span><br><span class="line"><span class="comment">// console.log(newFuc.value)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><ul>
+<li>只传递给函数一个参数调用它，返回一个函数处理剩下的参数</li>
+<li>把接受多个参数的函数转换成接受单一参数的函数，并且返回一个函数，这个函数接受余下的参数和返回结果。</li>
+<li>javascript闭包的特性，是我们将函数柯里化的基础</li>
+<li>柯里化具有延迟计算、参数复用、动态生成函数的作用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">y</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">add(<span class="number">3</span>)(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则表达式分组在js中怎么使用-如何匹配引号中的数字？"><a href="#正则表达式分组在js中怎么使用-如何匹配引号中的数字？" class="headerlink" title="正则表达式分组在js中怎么使用?如何匹配引号中的数字？"></a>正则表达式分组在js中怎么使用?如何匹配引号中的数字？</h3>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>DarLing</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2021/05/04/interview-xmly/" target="_blank" title="interview-xmly">https://darlinghan.github.io/hlblog-pages/2021/05/04/interview-xmly/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85/" rel="tag">喜马拉雅</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/06/npm%20install%E5%8E%9F%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          npm install原理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">移动端兼容性问题整理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-of%E3%80%81foreach%E3%80%81for-in%E3%80%81map%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">for-of、foreach、for in、map的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E4%B8%89%E4%B8%AA%E6%A8%A1%E5%9D%97a%E3%80%81b%E3%80%81c%EF%BC%8C%E5%85%B6%E4%B8%ADa%E6%A8%A1%E5%9D%97%E5%92%8Cb%E6%A8%A1%E5%9D%97%E4%BC%9A%E5%85%88%E5%90%8E%E5%8A%A0%E8%BD%BDc%E6%A8%A1%E5%9D%97%EF%BC%8C%E8%AF%B7%E9%97%AE%E8%BF%99%E4%B8%A4%E6%AC%A1%E5%8A%A0%E8%BD%BD%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">有三个模块a、b、c，其中a模块和b模块会先后加载c模块，请问这两次加载有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%97%AD%E5%8C%85%EF%BC%8C%E6%9E%84%E6%88%90%E9%97%AD%E5%8C%85%E4%BE%9D%E8%B5%96%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">什么是闭包，构成闭包依赖了哪些语言特性?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new%E5%85%B3%E9%94%AE%E5%AD%97%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">4.</span> <span class="nav-text">new关键字做了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">5.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">this的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E8%BF%B0call-apply%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">简述call&#x2F;apply的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setTimeout%E5%92%8CsetInterval%E5%81%9A%E8%BD%AE%E8%AF%A2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">8.</span> <span class="nav-text">setTimeout和setInterval做轮询的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%92%8C%E6%88%AA%E6%B5%81"><span class="nav-number">9.</span> <span class="nav-text">手写实现防抖和截流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="nav-number">10.</span> <span class="nav-text">bind函数实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text">柯里化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%86%E7%BB%84%E5%9C%A8js%E4%B8%AD%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8-%E5%A6%82%E4%BD%95%E5%8C%B9%E9%85%8D%E5%BC%95%E5%8F%B7%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">正则表达式分组在js中怎么使用?如何匹配引号中的数字？</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2021 HL&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HL&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2021 DarLing All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
