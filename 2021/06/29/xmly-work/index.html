@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>xm-work-需求评审 | HL&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="工作" />
+  
+  
+  
+  
+  <meta name="description" content="售前限制薅羊毛用户无脑领课背景： 产品说主 App 内用户不需要输入手机号，直接点击 0 元领课按钮，会导致很多无效订单。订单数&#x3D;》加老师数 直接的转化率 数据就会不准确，数据模型有问题。思考： 输入手机号是可以一定程度上过滤部分无脑下单的用户疑问点： 账户 A 登陆主 App,但是售前 H5 页面会存在登陆 B、C、D 等账户的问题，是否会影响订单和转化率的关系。一个用户用了多个手机号下单，但是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xm-work-需求评审">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/06/29/xmly-work/index.html">
+<meta property="og:site_name" content="HL&#39;s Blog">
+<meta property="og:description" content="售前限制薅羊毛用户无脑领课背景： 产品说主 App 内用户不需要输入手机号，直接点击 0 元领课按钮，会导致很多无效订单。订单数&#x3D;》加老师数 直接的转化率 数据就会不准确，数据模型有问题。思考： 输入手机号是可以一定程度上过滤部分无脑下单的用户疑问点： 账户 A 登陆主 App,但是售前 H5 页面会存在登陆 B、C、D 等账户的问题，是否会影响订单和转化率的关系。一个用户用了多个手机号下单，但是">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-29T03:41:04.000Z">
+<meta property="article:modified_time" content="2022-08-16T08:13:27.554Z">
+<meta property="article:author" content="DarLing">
+<meta property="article:tag" content="工作">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/icon_bg.jpg">
+  <link rel="apple-touch-icon" href="/css/images/icon_bg.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/icon_bg.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-xmly-work" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      xm-work-需求评审
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/06/29/xmly-work/" class="article-date">
+	  <time datetime="2021-06-29T03:41:04.000Z" itemprop="datePublished">2021-06-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="售前"><a href="#售前" class="headerlink" title="售前"></a>售前</h4><h3 id="限制薅羊毛用户无脑领课"><a href="#限制薅羊毛用户无脑领课" class="headerlink" title="限制薅羊毛用户无脑领课"></a>限制薅羊毛用户无脑领课</h3><p>背景： 产品说主 App 内用户不需要输入手机号，直接点击 0 元领课按钮，会导致很多无效订单。订单数=》加老师数 直接的转化率 数据就会不准确，数据模型有问题。<br>思考： 输入手机号是可以一定程度上过滤部分无脑下单的用户<br>疑问点： 账户 A 登陆主 App,但是售前 H5 页面会存在登陆 B、C、D 等账户的问题，是否会影响订单和转化率的关系。一个用户用了多个手机号下单，但是只有一个微信加了老师。那么真实订单数 : 加老师的比率就会不准确。<br>产品答复： 这样的用户存在少数——不影响（有疑问？）<br>方案： 1.希望用户不要输入主 App 之外的手机号 2.手机号输入的过滤方案——》改为问卷调查的弹框方案（比如询问宝宝的性别、年龄等），是否会更精确的过滤掉无效订单。</p>
+<ul>
+<li><p>主要问题： 订单数 和 加老师不成正比——存在多个无效订单，不利于用户模型的精准性。</p>
+</li>
+<li><p>产品方案：增加 0 元下单的门槛——通过输入手机号的方式，增加下单流程成本，减少无脑领单。</p>
+</li>
+<li><p>存在的争议： A 账户登陆 App，但是却用 B、C、D、E 等多个账户领课。可能会存在以下几个风险：<br>a. 用户用 B 账户购买后，过了几个月，记不得自己用哪个账户购买的，在 A 账户下，查不到对应的记录。（后来了解到可以通过订单查到对应下单的账户）<br>b. 主 app 里登陆两个账户（原本设计流程都是同一套账户体系，账户可能关联的功能系统比较多，比如用户画像，数据分析，订单等流程；可能会影响其中的各个环节，这都是现在无法预估的，都是未知风险点）</p>
+</li>
+<li><p>方案 1: 切换账户时，退出 A 账户，登陆 B 账户——不符合业务方的要求，不能因为售前 h5 页把主站 APP 的用户信息都清空掉了。</p>
+</li>
+<li><p>改方案： 切换账户时，不退出登陆，不清空 A 账户的值，直接登陆 B 账户，进入到手机号码校验页，过程中遇到的问题：<br>a. 当进入到手机号码校验页时会验证失败，说手机未绑定。————定位问题：主站那边会校验手机号————处理方案：去掉校验<br>b. 去掉校验后，在主站 App 里，拉起小程序进入站内页(与预期不符），加上 encode（主站那边的人说加上这个-目前也不知道什么含义）后，就可以拉起小程序进入预期的动态公号页。<br>c. 去领课——去加老师文案优化<br>d. A 账号下用 B 账号下单，最终订单落在 B 账号下，A 账号是没有下单的。那么 A 账户没有下单会被认为是无效用户，B 账户下单是有效用户。AB 账户会被当成两个用户。<br>A 账户 无效用户<br>uv<br>B 账户 有效用户</p>
+<pre><code>  对于uv来讲 用户即有效又无效
+  对于手机号来讲 那没有问题</code></pre>
+</li>
+<li><p>风险点：</p>
+<ol>
+<li>去掉中台手机号验证————风险未知————这个看上线后表现</li>
+<li>是否会收到客诉————关于 A 账户下查不到自己购买的课程问题（用户记不得自己是 A 账户下用了 B 账户购买）</li>
+<li>去掉校验后，加上 encode，进入小程序的场景，是否漏掉了一些————未知，需要上线后看反馈</li>
+<li>用户模型,是否通过该方案更准确————</li>
+<li>实际下单数 与 加老师数 比列是否缩小————通过埋点获取数据</li>
+<li>因为双账户的问题————存在的其他未知风险——需要上线后反馈</li>
+</ol>
+</li>
+</ul>
+<h3 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h3><ul>
+<li><ol>
+<li>马上打卡—— 用的 passport 账户</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>马上打卡 beta—— passport 测试环境账户走不通,售前测试环境只能访问马上打卡 beta 版本，并且配置的公众号对应的图文也有问题。</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>DarLing</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2021/06/29/xmly-work/" target="_blank" title="xm-work-需求评审">https://darlinghan.github.io/hlblog-pages/2021/06/29/xmly-work/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/09/23/nrm%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nrm使用问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/08/%E4%BC%AA%E5%85%83%E7%B4%A0%E5%AE%9E%E7%8E%B0%E8%99%9A%E7%BA%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">伪元素实现虚线</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%94%AE%E5%89%8D"><span class="nav-number">1.</span> <span class="nav-text">售前</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E8%96%85%E7%BE%8A%E6%AF%9B%E7%94%A8%E6%88%B7%E6%97%A0%E8%84%91%E9%A2%86%E8%AF%BE"><span class="nav-number"></span> <span class="nav-text">限制薅羊毛用户无脑领课</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="nav-number"></span> <span class="nav-text">小程序</span></a>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HL&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HL&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 DarLing All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>长按保存图片 | HL&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="js" />
+  
+  
+  
+  
+  <meta name="description" content="h5实现长按保存图片的功能-利用img标签这种方式调起了本地相册。背景： 抽签成功后，获取对应签的带二维码的图片到本地，用户可以通过扫码带二维码的图片进入活动 技术调研：  要调起手机系统相册，还是要借助于原生app,拉起访问系统相册的权限才能实现； h5内嵌的不同环境——各种app、浏览器等等暴露的api各不相同，所以要实现的话，要根据不同环境调起不同的桥接api,所以工作量还是较大； 最后还是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="长按保存图片">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2021/01/25/%E9%95%BF%E6%8C%89%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87/index.html">
+<meta property="og:site_name" content="HL&#39;s Blog">
+<meta property="og:description" content="h5实现长按保存图片的功能-利用img标签这种方式调起了本地相册。背景： 抽签成功后，获取对应签的带二维码的图片到本地，用户可以通过扫码带二维码的图片进入活动 技术调研：  要调起手机系统相册，还是要借助于原生app,拉起访问系统相册的权限才能实现； h5内嵌的不同环境——各种app、浏览器等等暴露的api各不相同，所以要实现的话，要根据不同环境调起不同的桥接api,所以工作量还是较大； 最后还是">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-25T07:13:39.000Z">
+<meta property="article:modified_time" content="2022-08-16T08:13:27.556Z">
+<meta property="article:author" content="DarLing">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/icon_bg.jpg">
+  <link rel="apple-touch-icon" href="/css/images/icon_bg.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/icon_bg.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-长按保存图片" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      长按保存图片
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/01/25/%E9%95%BF%E6%8C%89%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87/" class="article-date">
+	  <time datetime="2021-01-25T07:13:39.000Z" itemprop="datePublished">2021-01-25</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="h5实现长按保存图片的功能-利用img标签"><a href="#h5实现长按保存图片的功能-利用img标签" class="headerlink" title="h5实现长按保存图片的功能-利用img标签"></a>h5实现长按保存图片的功能-利用<code>img</code>标签</h3><p>这种方式调起了本地相册。<br>背景： 抽签成功后，获取对应签的带二维码的图片到本地，用户可以通过扫码带二维码的图片进入活动</p>
+<p>技术调研：</p>
+<ul>
+<li>要调起手机系统相册，还是要借助于原生app,拉起访问系统相册的权限才能实现；</li>
+<li>h5内嵌的不同环境——各种app、浏览器等等暴露的api各不相同，所以要实现的话，要根据不同环境调起不同的桥接api,所以工作量还是较大；</li>
+<li>最后还是用浏览器默认的自带的功能属性<code>img</code>标签长按保存添加图片</li>
+</ul>
+<ol>
+<li>允许用户在微信上保存图片 所以<code>img</code>标签需要加上以下属性</li>
+</ol>
+<ul>
+<li><p>允许</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-user-select</span>: <span class="selector-tag">auto</span>; </span><br><span class="line"><span class="selector-tag">-moz-user-select</span>: <span class="selector-tag">auto</span>;    </span><br><span class="line"><span class="selector-tag">-khtml-user-select</span>: <span class="selector-tag">auto</span>;  </span><br><span class="line"><span class="selector-tag">-ms-user-select</span>: <span class="selector-tag">auto</span>;</span><br><span class="line"><span class="selector-tag">user-select</span>: <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tips:<br>user-select: auto; =&gt; 用户可以选中元素中的内容</br>user-select: none; =&gt; 用户不可选中元素中的内容</br>user-select: text; =&gt; 用户可以选中元素中的文字</p>
+</blockquote>
+</li>
+<li><p>禁止——仅支持IE10及以上的高版本浏览器。IE9 以下请使用<code> onselectstart=&quot;return false;&quot;</code> 的方式来实现。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-user-select</span>: <span class="selector-tag">none</span>; </span><br><span class="line"><span class="selector-tag">-moz-user-select</span>: <span class="selector-tag">none</span>;    </span><br><span class="line"><span class="selector-tag">-khtml-user-select</span>: <span class="selector-tag">none</span>;  </span><br><span class="line"><span class="selector-tag">-ms-user-select</span>: <span class="selector-tag">none</span>;</span><br><span class="line"><span class="comment">/* 以下两个属性目前并未支持，写在这里为了减少风险 */</span></span><br><span class="line"><span class="selector-tag">-o-user-select</span>: <span class="selector-tag">none</span>;</span><br><span class="line"><span class="selector-tag">user-select</span>: <span class="selector-tag">none</span>;  </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>监听<code>img</code>标签加载图片完成再执行其他操作<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;img&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// img标签动态添加</span></span><br><span class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image();</span><br><span class="line">img.src=<span class="string">&#x27;&#x27;</span>; <span class="comment">// 图片url</span></span><br><span class="line">img.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;背景图片已加载完毕&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// img标签已有</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&#x27;#img&#x27;</span>).onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;加载完成了);</span></span><br><span class="line"><span class="string">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>tips:onload 与 ready 的区别是：</p>
+</blockquote>
+<ul>
+<li>1、ready 是 DOM 加载完成的事件</li>
+<li>2、onload 是所有内容加载完成(如：图片)</li>
+</ul>
+<h3 id="h5实现长按保存图片的功能-利用a标签-下载的方式"><a href="#h5实现长按保存图片的功能-利用a标签-下载的方式" class="headerlink" title="h5实现长按保存图片的功能-利用a标签-下载的方式"></a>h5实现长按保存图片的功能-利用<code>a</code>标签-下载的方式</h3><p>这种方式只是下载，并没有调起系统相册</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">saveImg</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _image = <span class="keyword">new</span> Image()</span><br><span class="line">    _image.src = url + <span class="string">&#x27;?v=&#x27;</span> + <span class="built_in">Math</span>.random() <span class="comment">// 处理缓存</span></span><br><span class="line">    _image.crossOrigin = <span class="string">&#x27;*&#x27;</span> <span class="comment">// 支持跨域图片</span></span><br><span class="line">    _image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&#x27;canvas&#x27;</span>)</span><br><span class="line">        canvas.width = _image.width</span><br><span class="line">        canvas.height = _image.height</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">        ctx.drawImage(_image, <span class="number">0</span>, <span class="number">0</span>, _image.width, _image.height)</span><br><span class="line">        <span class="keyword">var</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>); <span class="comment">// 转换为base64的图片才能直接下载</span></span><br><span class="line">        <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        a.download = <span class="string">&#x27;抽签&#x27;</span> <span class="comment">// 设置a节点的download属性值</span></span><br><span class="line">        a.href = dataURL; <span class="comment">// 将图片的src赋值给a节点的href</span></span><br><span class="line">        a.dispatchEvent(<span class="keyword">new</span> MouseEvent(<span class="string">&#x27;click&#x27;</span>, &#123; <span class="attr">bubbles</span>: <span class="literal">true</span>, <span class="attr">cancelable</span>: <span class="literal">true</span>, <span class="attr">view</span>: <span class="built_in">window</span> &#125;)); <span class="comment">// 兼容火狐</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="踩坑1——iPhone11img标签包裹的图片，微信打开链接长按保存失效，其他手机可以"><a href="#踩坑1——iPhone11img标签包裹的图片，微信打开链接长按保存失效，其他手机可以" class="headerlink" title="踩坑1——iPhone11img标签包裹的图片，微信打开链接长按保存失效，其他手机可以"></a>踩坑1——iPhone11<code>img</code>标签包裹的图片，微信打开链接长按保存失效，其他手机可以</h3><p>找问题思路：</p>
+<ul>
+<li>访问正常的<code>img</code>包裹的链接，百度上随便找了一个链接，发现iphone11微信访问是成功的,但是自己的开发的<code>html</code>页面就是不行。</li>
+<li>访问自己本地开发的其他有<code>img</code>标签的<code>html</code>页面也可以长按保存图片，但是自己开发的抽签<code>html</code>页面就是不行。</li>
+<li>后来怀疑是不是图片<code>url</code>格式的影响，就把自己的抽签页面图片url替换正常的html页面的url,发现也不行，果然是url格式的问题。</li>
+<li>直接为了优化图片，在图片的后缀上加了<code>?caplist=jpg,webp,avif</code>这样的后缀，这样可以把<code>jpg</code>的原始图片尺寸压缩小<code>50%</code>左右，但是正是因为这个原因，保存图片的格式为<code>webp</code>的格式，导致微信保存图片失败，去掉这样的后缀就好了。</li>
+</ul>
+<blockquote>
+<p>tips: 在cdn侧判断参数caplist，根据预先定义的优先级，在caplist能够支持图片格式的范围内，返回对应格式的图片内容，若响应了404，则返回次优先级格式图片的内容，直到重试返回图片格式的范围内最低优先级格式的图片内容，若最低优先级格式的图片内容为404，则响应用户为404 HTTP_NOT_FOUND优先级：avif &gt; heic &gt;  webp &gt; jpg &gt; png，由图片生产团队提供……</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>DarLing</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2021/01/25/长按保存图片/" target="_blank" title="长按保存图片">https://darlinghan.github.io/hlblog-pages/2021/01/25/长按保存图片/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/01/28/css%E5%8A%A8%E7%94%BB%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8Fdiv/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          css动画显示隐藏div
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/23/%E5%8D%A1%E7%89%87%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">卡片翻转动画</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#h5%E5%AE%9E%E7%8E%B0%E9%95%BF%E6%8C%89%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%9F%E8%83%BD-%E5%88%A9%E7%94%A8img%E6%A0%87%E7%AD%BE"><span class="nav-number">1.</span> <span class="nav-text">h5实现长按保存图片的功能-利用img标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h5%E5%AE%9E%E7%8E%B0%E9%95%BF%E6%8C%89%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%9F%E8%83%BD-%E5%88%A9%E7%94%A8a%E6%A0%87%E7%AD%BE-%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">h5实现长按保存图片的功能-利用a标签-下载的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B8%A9%E5%9D%911%E2%80%94%E2%80%94iPhone11img%E6%A0%87%E7%AD%BE%E5%8C%85%E8%A3%B9%E7%9A%84%E5%9B%BE%E7%89%87%EF%BC%8C%E5%BE%AE%E4%BF%A1%E6%89%93%E5%BC%80%E9%93%BE%E6%8E%A5%E9%95%BF%E6%8C%89%E4%BF%9D%E5%AD%98%E5%A4%B1%E6%95%88%EF%BC%8C%E5%85%B6%E4%BB%96%E6%89%8B%E6%9C%BA%E5%8F%AF%E4%BB%A5"><span class="nav-number">3.</span> <span class="nav-text">踩坑1——iPhone11img标签包裹的图片，微信打开链接长按保存失效，其他手机可以</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HL&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HL&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 DarLing All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hexo+github pages部署博客 | HL&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="hexogithub pages" />
+  
+  
+  
+  
+  <meta name="description" content="一、hexo环境配置 a. 安装Node.js环境  b. 安装Git环境  c. 安装Hexo npm install -g hexo-cli  d. hexo init 项目名  e. npm intsall  f. hexo generator 生成静态文件  g. hexo server 启动  h. npm install hexo-deployer-git --save 安装hexo-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+github pages部署博客">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2020/12/08/hexo+github%20pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="HL&#39;s Blog">
+<meta property="og:description" content="一、hexo环境配置 a. 安装Node.js环境  b. 安装Git环境  c. 安装Hexo npm install -g hexo-cli  d. hexo init 项目名  e. npm intsall  f. hexo generator 生成静态文件  g. hexo server 启动  h. npm install hexo-deployer-git --save 安装hexo-">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-08T11:13:15.000Z">
+<meta property="article:modified_time" content="2022-08-16T08:13:27.553Z">
+<meta property="article:author" content="DarLing">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="github pages">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/icon_bg.jpg">
+  <link rel="apple-touch-icon" href="/css/images/icon_bg.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/icon_bg.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-hexo+github pages部署博客" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      hexo+github pages部署博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/12/08/hexo+github%20pages%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" class="article-date">
+	  <time datetime="2020-12-08T11:13:15.000Z" itemprop="datePublished">2020-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、hexo环境配置"><a href="#一、hexo环境配置" class="headerlink" title="一、hexo环境配置"></a>一、hexo环境配置</h2><ul>
+<li><p>a. 安装Node.js环境</p>
+</li>
+<li><p>b. 安装Git环境</p>
+</li>
+<li><p>c. 安装Hexo <code>npm install -g hexo-cli</code></p>
+</li>
+<li><p>d. hexo init <code>项目名</code></p>
+</li>
+<li><p>e. <code>npm intsall</code></p>
+</li>
+<li><p>f. <code>hexo generator</code> 生成静态文件</p>
+</li>
+<li><p>g. <code>hexo server</code> 启动</p>
+</li>
+<li><p>h. <code>npm install hexo-deployer-git --save</code> 安装hexo-deployer-git</p>
+</li>
+<li><p>i.<br>  deploy</p>
+<pre><code>  type: git
+  repository: git@github.com:YOUR_ID/YOUR_ID.github.io.git
+  branch: master     </code></pre>
+<p>在”_config.yml”配置中将deploy 的 type由github改为git</p>
+</li>
+<li><p>j. <code>hexo deploy</code> 实现自动部署到git</p>
+</li>
+<li><p>k. 替换主题的时候 下载对应的主题文件 放到themes文件目录下，修改_config.yml文件中的theme为该主题目录名</p>
+</li>
+<li><p>l. </p>
+<h2 id="If-your-site-is-put-in-a-subdirectory-set-url-as-‘http-example-com-child-39-and-root-as-‘-child-‘"><a href="#If-your-site-is-put-in-a-subdirectory-set-url-as-‘http-example-com-child-39-and-root-as-‘-child-‘" class="headerlink" title="If your site is put in a subdirectory, set url as ‘http://example.com/child&#39; and root as ‘/child/‘"></a>If your site is put in a subdirectory, set url as ‘<a target="_blank" rel="noopener" href="http://example.com/child&#39;">http://example.com/child&#39;</a> and root as ‘/child/‘</h2><p>  url: <a href="https://darlinghan.github.io/hlblog-pages">https://darlinghan.github.io/hlblog-pages</a><br>  root: /hlblog-pages/<br>部署hexo到GitHub pages时样式错乱 要修改_config.yml下的url为(GitHub——settings——GitHub Pages)生成的路径，及root为路径地址</p>
+</li>
+</ul>
+<h2 id="二、GitHub-Pages配置"><a href="#二、GitHub-Pages配置" class="headerlink" title="二、GitHub Pages配置"></a>二、GitHub Pages配置</h2><p>使用它部署静态资源，因为免费，不限容量大小，而且可以集成git,开发使用起来非常方便，虽然访问有点慢。</p>
+<ul>
+<li><p>a. GitHub repository创建自己的仓库<code>TESTXXX</code></p>
+</li>
+<li><p>b. 修改该仓库下的settings——》Github Pages——》Theme Chooser——》choose theme——》source 配置 master(或其他分支)</p>
+</li>
+<li><p>c. 配置公钥私钥<br>  Git Bash下 输入<code>ssh-keygen -t rsa -C &quot;XXXXX@qq.com&quot;</code>指令<br>  一路回车<br>  会在<code>~/.ssh/</code>下生成两个文件<code>id_rsa</code>和<code>id_rsa.pub</code><br>  GitHub 个人中心的 SSH and GPG keys下 新增SSH key<br>  复制<code>id_rsa.pub</code>下的内容</p>
+</li>
+</ul>
+<h2 id="三、映射自己的专属域名"><a href="#三、映射自己的专属域名" class="headerlink" title="三、映射自己的专属域名"></a>三、映射自己的专属域名</h2><p>背景： 我是在阿里云oss购买的域名，10年199元<code>hanling.fun</code>的域名，便宜吧~</p>
+<ul>
+<li><p>a. 方式一<br>  直接GitHub——》仓库的settings——》Github pages——》Custom Domain输入自己买的域名，<br>  然后一般要10分钟以后生效，我搭建的时候当天晚上没有生效，第二天早上看了下，还是没有生效，<br>  然后我又在Custom Domain里又重新输入了一下自己的域名，<br>  然后Github Pages下的域名地址就由原来Github默认提供的地址更新为了我自己的域名，<br>  并且提升30分钟至1小时后才会更新，所以再等等看吧~</p>
+</li>
+<li><p>b. 方式二<br>  Github博客部署hexo静态文件的那个repository（仓库）根目录下新建CNAME文件，里面放入自己的域名。<br>  购买的域名官方网站去解析，添加记录——》记录类型为CNAME，<br>  主机记录为@，解析线路默认，记录值为github的仓库名（也就是自己的GitHub地址），TTL可选默认10分钟。</p>
+</li>
+</ul>
+<h2 id="四、过程中遇到的问题"><a href="#四、过程中遇到的问题" class="headerlink" title="四、过程中遇到的问题"></a>四、过程中遇到的问题</h2><ul>
+<li><p>1.hexo deploy时CNAME文件会丢失<br>直接hexo——》source目录下建CNAME文件——》hexo deploy时会将该文件生成到public下；<br>该文件就是填写自己的域名，GitHub会自动读取这个文件里的内容把它映射到GitHub pages原本提供的地址。</p>
+</li>
+<li><p>2.部署后样式错乱问题<br>注意public打包后的文件，index.html中引入的样式路径是否正确，<br>不正确的话对应的调整_config.yml中的url,root配置。</p>
+</li>
+<li><p>3.开启搜索模式<br>要实现站内搜索，必须在hexo目录下先安装 <code>hexo-generator-json-content</code>插件，然后设置_config.yml文件下的insight为true</p>
+</li>
+<li><p>4.开启评论功能<br>livere（来必力）网站注册账户<br>选择来必力City版本——免费——安装——》生成了代码，复制其中的data-uid<br>登录自己的账户（比如微信）<br>修改hexo主题下的_config.yml文件中的livere_shortname字段为刚刚复制的内容<br>就大功告成啦~</p>
+</li>
+<li><p>5.引入图片资源<br>安装<code>cnpm install hexo-asset-image</code>,修改_config.yml下的post_asset_folder属性为true。此时再执行命令 hexo n article_name 创建新的文章，在 source/_posts 中会生成文章 post_name.md 和同名文件夹 post_name,我们将文章中所使用到的将图片资源均放在 post_name 中，这时就可以在文章中使用相对路径引用图片资源了。<br><code>![img_name](img_name.jpg) #文章中的图片资源路径格式</code></p>
+<blockquote>
+<p>tips: 并没有生效……还没找到原因</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="五、hexo一些常见命令"><a href="#五、hexo一些常见命令" class="headerlink" title="五、hexo一些常见命令"></a>五、hexo一些常见命令</h2><ul>
+<li><ol>
+<li>新建草稿，不会出现在文章中 <code>hexo new draft test2</code></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将草稿中的文章发布到_post中<code>hexo publish draft test2</code></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>清空hexo生成的public文件<code>hexo clean</code></li>
+</ol>
+</li>
+<li><ol start="4">
+<li>生成静态文件<code>hexo g</code></li>
+</ol>
+</li>
+<li><ol start="5">
+<li>部署文件<code>hexo d</code></li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>DarLing</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/12/08/hexo+github pages部署博客/" target="_blank" title="hexo+github pages部署博客">https://darlinghan.github.io/hlblog-pages/2020/12/08/hexo+github pages部署博客/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-pages/" rel="tag">github pages</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/21/%E8%B7%A8%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          跨域
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/05/%E6%9D%AD%E5%B7%9E%E6%97%85%E8%A1%8C%E9%9A%8F%E7%AC%94/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">杭州四人游</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81hexo%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">一、hexo环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-your-site-is-put-in-a-subdirectory-set-url-as-%E2%80%98http-example-com-child-39-and-root-as-%E2%80%98-child-%E2%80%98"><span class="nav-number">2.</span> <span class="nav-text">If your site is put in a subdirectory, set url as ‘http:&#x2F;&#x2F;example.com&#x2F;child&#39; and root as ‘&#x2F;child&#x2F;‘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GitHub-Pages%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">二、GitHub Pages配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%98%A0%E5%B0%84%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%93%E5%B1%9E%E5%9F%9F%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">三、映射自己的专属域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">四、过程中遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81hexo%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">五、hexo一些常见命令</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HL&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HL&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 DarLing All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>review1 | HL&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="面试" />
+  
+  
+  
+  
+  <meta name="description" content="英语流利说一面 微前端描述下 &amp;emsp;&amp;emsp;将前端应用分解成一些更小、更简单的能够独立开发、测试、部署的小块，而在用户看来仍然是内聚的单个产品。&amp;emsp;&amp;emsp;简单来讲就是将庞大的整体拆成可控的小块，并明确它们之间的依赖关系，关键优势在于:&amp;emsp;&amp;emsp;a.代码块更小，更内聚，可维护性更高。&amp;emsp;&amp;emsp;b.松耦合，自治的团队可扩展性更好。&amp;emsp;&amp;ems">
+<meta property="og:type" content="article">
+<meta property="og:title" content="review1">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2020/12/23/review1/index.html">
+<meta property="og:site_name" content="HL&#39;s Blog">
+<meta property="og:description" content="英语流利说一面 微前端描述下 &amp;emsp;&amp;emsp;将前端应用分解成一些更小、更简单的能够独立开发、测试、部署的小块，而在用户看来仍然是内聚的单个产品。&amp;emsp;&amp;emsp;简单来讲就是将庞大的整体拆成可控的小块，并明确它们之间的依赖关系，关键优势在于:&amp;emsp;&amp;emsp;a.代码块更小，更内聚，可维护性更高。&amp;emsp;&amp;emsp;b.松耦合，自治的团队可扩展性更好。&amp;emsp;&amp;ems">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-23T08:09:33.000Z">
+<meta property="article:modified_time" content="2022-08-16T08:13:27.554Z">
+<meta property="article:author" content="DarLing">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/icon_bg.jpg">
+  <link rel="apple-touch-icon" href="/css/images/icon_bg.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/icon_bg.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-review1" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      review1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/12/23/review1/" class="article-date">
+	  <time datetime="2020-12-23T08:09:33.000Z" itemprop="datePublished">2020-12-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/review/">review</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="英语流利说"><a href="#英语流利说" class="headerlink" title="英语流利说"></a>英语流利说</h3><h4 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h4><ol>
+<li>微前端描述下<blockquote>
+<p>&emsp;&emsp;将前端应用分解成一些更小、更简单的能够独立开发、测试、部署的小块，而在用户看来仍然是内聚的单个产品。<br>&emsp;&emsp;简单来讲就是将庞大的整体拆成可控的小块，并明确它们之间的依赖关系，关键优势在于:<br>&emsp;&emsp;<strong>a.代码块更小，更内聚，可维护性更高。</strong><br>&emsp;&emsp;<strong>b.松耦合，自治的团队可扩展性更好。</strong><br>&emsp;&emsp;<strong>c.渐进的升级、更新甚至重写部分前端功能成为了可能。</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>怎么协同开发<blockquote>
+<p>&emsp;&emsp;围绕业务功能纵向组建团队，而不是基于技术职能划分。最简单的可以根据最终用户看到的内容来划分，比如将应用中的每个页面作为一个微前端，并交付给一个团队全权负责。这种方式能够提升团队工作的凝聚力。<br>&emsp;&emsp;实施渐进式重构，先让新旧代码和谐共存，再逐步转化旧代码，直到整个重构完成，这种增量升级的能力，可以降低产品局部替换的风险，包括升级依赖项、更替架构、UI改版等。另一方面也带来了技术选型上的灵活性，有助于新技术、新交互模式的实验性试错。</p>
+</blockquote>
+</li>
+<li>注意事项<blockquote>
+<p>&emsp;&emsp;独立构建意味着公共资源的冗余，继而增加用户的流量负担。<br>&emsp;&emsp;团队自治程度的增加，可能会破坏协作。<br>&emsp;&emsp;微前端将产生一堆小的东西，因此需要考虑是否具备采用这种方法所需的技术和组织成熟度。<br>&emsp;&emsp;&emsp;&emsp;<strong>a.现有的前端开发、测试、发布流程如何扩展支持很多个应用</strong><br>&emsp;&emsp;&emsp;&emsp;<strong>b.分散的，控制弱化的工具体系及开发实践是否可靠</strong><br>&emsp;&emsp;&emsp;&emsp;<strong>c.针对各式各样的前端代码库，如何建立质量标准</strong></p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>场景问题</li>
+</ol>
+<ul>
+<li>两个请求并行发送，如果其中一个请求出错，就用默认值代替，怎么实现</li>
+<li>页面有两个相同的请求怎么复用</li>
+</ul>
+<ol start="3">
+<li>react 生命周期</li>
+<li>react通信</li>
+<li>跨域通信有哪些</li>
+<li>http缓存</li>
+<li>懒加载</li>
+<li>commonjs 和 es module区别</li>
+<li>tree sharking原理</li>
+<li>loader 会 plugins区别</li>
+<li>防抖和节流区别，大概实现</li>
+<li>了解哪些新技术</li>
+</ol>
+<h4 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h4><ol>
+<li>介绍一下项目亮点</li>
+<li>介绍一下微前端</li>
+<li>说一下npm包管理机制</li>
+</ol>
+<ul>
+<li>A插件依赖D插件版本是1.0.1，B插件依赖D插件版本是1.0.2，C插件依赖D插件1.1.0，那么npm i 之后，下载了几个版本的D插件<br>HTTP常见的状态码 ，401 403分别是什么， 常见的请求头响应头有哪些</li>
+</ul>
+<ol start="4">
+<li>说一下webpack配置，常用的loader、plugin</li>
+</ol>
+<ul>
+<li>场景题目<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 控制台会报错么</span></span><br><span class="line"><span class="comment">// 如果报错是什么类型的错误</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h4><ol>
+<li>介绍项目</li>
+<li>你充当的角色</li>
+<li>你平时是如何学习的</li>
+<li>对自己的规划</li>
+<li>别人怎么评价你的</li>
+</ol>
+<h3 id="携程"><a href="#携程" class="headerlink" title="携程"></a>携程</h3><h4 id="一面-1"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h4><ol>
+<li>介绍微前端</li>
+<li>乾坤框架怎么实现的沙盒机制</li>
+<li>手写一个单例模式</li>
+<li>手写一个发布订阅模式</li>
+<li>手写一个redux的compose函数</li>
+<li>手写一个组合继承</li>
+<li>垃圾回收机制了解么，介绍一下</li>
+<li>自定义hooks和函数有什么区别</li>
+</ol>
+<h4 id="二面-1"><a href="#二面-1" class="headerlink" title="二面"></a>二面</h4><ol>
+<li>事件循环输出顺序问题</li>
+<li>实现函数异步请求成功后就返回，失败后重试max次</li>
+<li>前端怎么埋点监控</li>
+<li>hooks为什么不能写在if 语句里面</li>
+<li>useCallback的实现原理</li>
+<li>怎么画1px像素线，逻辑像素,物理像素的概念</li>
+<li>自己写的mock服务是怎么实现的，为什么不在webpack里用相关插件</li>
+</ol>
+<h4 id="三面-1"><a href="#三面-1" class="headerlink" title="三面"></a>三面</h4><ol>
+<li>公司是做什么的，介绍下公司产品</li>
+<li>你现在充当的团队角色</li>
+<li>你现在是一个管理者了，为什么离职了</li>
+<li>将来的规划</li>
+<li>携程面的是一个新的业务线，需要一段时间的996，但是携程本身不是996公司了，加班有加班费，并且携程面试完之后会有一个行测评测和英语口语评测，必须要过。<blockquote>
+<p>携程面试完之后会有一个行测评测和英语口语评测，必须要过。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="比心APP"><a href="#比心APP" class="headerlink" title="比心APP"></a>比心APP</h3><h4 id="一面-2"><a href="#一面-2" class="headerlink" title="一面"></a>一面</h4><ol>
+<li>介绍下项目</li>
+<li>说一下微前端实现</li>
+<li>写一个Promise.all函数</li>
+<li>写一个发布订阅模式</li>
+<li>一道setTimeout事件循环的题目</li>
+<li>手写题实现电话号码隔位显示（3 4 4）</li>
+<li>算法题[0, 2, 3, 0, 5, 0, 0]将0全部移动到后面去</li>
+</ol>
+<h4 id="二面-2"><a href="#二面-2" class="headerlink" title="二面"></a>二面</h4><ol>
+<li>介绍下项目亮点</li>
+<li>说一下redux如何使用</li>
+<li>redux源码介绍下</li>
+<li>你说你angular, vue, react都使用过，说一下三者的区别</li>
+<li>了解缓存么 大概讲一下</li>
+<li>解释下https</li>
+<li>介绍几个git常见的操作命令</li>
+</ol>
+<h4 id="三面-2"><a href="#三面-2" class="headerlink" title="三面"></a>三面</h4><ol>
+<li>介绍项目亮点</li>
+<li>react通信是怎么样的</li>
+<li>react-redux中connect怎么连接组件的</li>
+<li>为什么要离职</li>
+<li>你最擅长的是什么</li>
+</ol>
+<h3 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h3><h4 id="一面-3"><a href="#一面-3" class="headerlink" title="一面"></a>一面</h4><ol>
+<li>介绍一下微前端</li>
+<li>乾坤框架源码看过么</li>
+<li>写一个自定义hooks，useDiff</li>
+<li>数组去重方法越多越好</li>
+<li>写一个匹配邮箱的正则</li>
+<li>实现函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params">s, count</span>) </span>&#123;&#125;</span><br><span class="line">repeat(<span class="string">&#x27;s&#x27;</span>, <span class="number">3</span>) <span class="comment">// 输出 ‘sss’</span></span><br></pre></td></tr></table></figure></li>
+<li>函数实现<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 正则匹配标签名 输出div p span</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>实现一个深拷贝</li>
+<li>实现函数统计字符串里面出现次数最多的字符</li>
+<li>有做过什么优化么</li>
+</ol>
+<h4 id="二面-3"><a href="#二面-3" class="headerlink" title="二面"></a>二面</h4><ol>
+<li>介绍下微前端</li>
+<li>hooks常用的api有哪些</li>
+<li>useState,useEffect,useRef,useMemo在存储数据方面有什么区别</li>
+<li>hooks组件怎么向外传递方法</li>
+<li>写一个三列等距布局，越多越好</li>
+<li>写一个公共组件需要注意哪些</li>
+<li>写一个表单生成组件</li>
+</ol>
+<ul>
+<li>生成一个完整的组件</li>
+<li>表单填入的值，可以返回出去<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = [</span><br><span class="line">    &#123;</span><br><span class="line">        type: <span class="string">&#x27;input&#x27;</span>,</span><br><span class="line">        name: <span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">        key: <span class="string">&#x27;name&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        type: <span class="string">&#x27;select&#x27;</span>,</span><br><span class="line">        name: <span class="string">&#x27;work&#x27;</span>,</span><br><span class="line">        key: <span class="string">&#x27;work&#x27;</span>,</span><br><span class="line">        options: []</span><br><span class="line">    &#125;</span><br><span class="line">] </span><br><span class="line">&lt;FormC config=&#123;config&#125; /&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="8">
+<li>你ts用的多么，说几个高级用法</li>
+<li>介绍下interface和type的区别</li>
+</ol>
+<h4 id="三面-3"><a href="#三面-3" class="headerlink" title="三面"></a>三面</h4><ol>
+<li>介绍下项目</li>
+<li>为什么要重构项目</li>
+<li>为什么要做微前端</li>
+<li>详细说一下机器学习做的事情</li>
+<li>你觉得AI智能给前端带来的变化<blockquote>
+<p>百度好像react比较看重，其他的几个岗位基本也是招react</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="京东凹凸实验室"><a href="#京东凹凸实验室" class="headerlink" title="京东凹凸实验室"></a>京东凹凸实验室</h3><ol>
+<li>介绍下微前端实现方式，以及你们是怎么做的</li>
+<li>乾坤框架源码看过没</li>
+<li>commonjs 和 es module区别</li>
+<li>代码题1<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span> = &#123;</span><br><span class="line">    name: <span class="string">&#x27;json&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>); <span class="comment">// 输出什么</span></span><br></pre></td></tr></table></figure></li>
+<li>代码题2<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js </span></span><br><span class="line"><span class="comment">// 在b中用es6 module语法怎么引入</span></span><br></pre></td></tr></table></figure></li>
+<li>介绍下浏览器缓存机制</li>
+<li>webpack打包原理是怎么样的</li>
+<li>webpack 插件写过没，介绍下原理</li>
+<li>webpack5介绍下</li>
+<li>看你用过react介绍下fiber架构</li>
+<li>esbuild知道么介绍下</li>
+<li>你用过vue，现在出了vue3.0介绍下</li>
+<li>vue现在出了一个打包工具vite，介绍下为什么会比其他的打包工具快</li>
+</ol>
+<h3 id="字节跳动"><a href="#字节跳动" class="headerlink" title="字节跳动"></a>字节跳动</h3><h4 id="一面-4"><a href="#一面-4" class="headerlink" title="一面"></a>一面</h4><ol>
+<li>介绍下项目，微前端实现</li>
+<li>介绍下https加密过程</li>
+<li>redux原理</li>
+<li>第三方登录，如果让你去设计，你会怎么考虑</li>
+<li>介绍下浏览器和node的事件循环</li>
+<li>做了一道原型链输出问题</li>
+<li>做了一道setTimeout输出问题</li>
+<li>做了一道this.setState输出问题（异步和合并）</li>
+<li>实现一下promise.race</li>
+<li>实现一下task().eat().sleep(2000).eat().sleep(2000)函数</li>
+<li>判断链表有环但是空间复杂度是O(1)</li>
+</ol>
+<h4 id="二面-4"><a href="#二面-4" class="headerlink" title="二面"></a>二面</h4><ol>
+<li>介绍下项目</li>
+<li>redux用的熟么，介绍一下源码</li>
+<li>connect怎么处理组件的</li>
+<li>context会有什么性能问题么</li>
+<li>实现防抖节流</li>
+<li>实现sum(1)(2, 3)(4)柯里化</li>
+<li>实现一个非树状结构转树状结构函数</li>
+<li>一个查找最长子字符串算法</li>
+</ol>
+<h4 id="三面-4"><a href="#三面-4" class="headerlink" title="三面"></a>三面</h4><ol>
+<li>介绍下项目</li>
+<li>微前端实现</li>
+<li>乾坤框架如何做到隔离</li>
+<li>实现一个String.prototype._trim函数</li>
+<li>实现一个reduce</li>
+<li>实现一个多个请求，并行和串行的函数<blockquote>
+<p>tips: 想面试字节的同学，一定多刷函数实现，算法(连续做一个月)，源码理解</p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>DarLing</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/12/23/review1/" target="_blank" title="review1">https://darlinghan.github.io/hlblog-pages/2020/12/23/review1/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/29/img%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E5%A6%82%E4%BD%95%E7%9B%91%E5%90%AC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          img加载失败Vue中如何监听
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/22/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">小程序入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%B1%E8%AF%AD%E6%B5%81%E5%88%A9%E8%AF%B4"><span class="nav-number">1.</span> <span class="nav-text">英语流利说</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E9%9D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">二面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E9%9D%A2"><span class="nav-number">1.3.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%BA%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">携程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E9%9D%A2-1"><span class="nav-number">2.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E9%9D%A2-1"><span class="nav-number">2.2.</span> <span class="nav-text">二面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E9%9D%A2-1"><span class="nav-number">2.3.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%BF%83APP"><span class="nav-number">3.</span> <span class="nav-text">比心APP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E9%9D%A2-2"><span class="nav-number">3.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E9%9D%A2-2"><span class="nav-number">3.2.</span> <span class="nav-text">二面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E9%9D%A2-2"><span class="nav-number">3.3.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BE%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">百度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E9%9D%A2-3"><span class="nav-number">4.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E9%9D%A2-3"><span class="nav-number">4.2.</span> <span class="nav-text">二面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E9%9D%A2-3"><span class="nav-number">4.3.</span> <span class="nav-text">三面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%AC%E4%B8%9C%E5%87%B9%E5%87%B8%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="nav-number">5.</span> <span class="nav-text">京东凹凸实验室</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8"><span class="nav-number">6.</span> <span class="nav-text">字节跳动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E9%9D%A2-4"><span class="nav-number">6.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E9%9D%A2-4"><span class="nav-number">6.2.</span> <span class="nav-text">二面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E9%9D%A2-4"><span class="nav-number">6.3.</span> <span class="nav-text">三面</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HL&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HL&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 DarLing All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

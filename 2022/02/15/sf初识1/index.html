@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>算法初识1 | HL&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="算法" />
+  
+  
+  
+  
+  <meta name="description" content="为什么学习数据结构与算法？开发工程师就是把实际的问题转化成计算机指令——设计出数据结构，再加以算法。  review 计算机世界的基本规则 各种框架的原理对于算法应用  学习思路及方法  对数据结构和算法有一个全方位的了解    分类练习——一段时间只练习固定分类的题目，比如只练习二叉树的，开始之前，对其具体定义、概念、应用及可能出现的恶类型进行梳理了解再开始。    对一个类型针对性练习后，定期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法初识1">
+<meta property="og:url" content="https://darlinghan.github.io/hlblog-pages/2022/02/15/sf%E5%88%9D%E8%AF%861/index.html">
+<meta property="og:site_name" content="HL&#39;s Blog">
+<meta property="og:description" content="为什么学习数据结构与算法？开发工程师就是把实际的问题转化成计算机指令——设计出数据结构，再加以算法。  review 计算机世界的基本规则 各种框架的原理对于算法应用  学习思路及方法  对数据结构和算法有一个全方位的了解    分类练习——一段时间只练习固定分类的题目，比如只练习二叉树的，开始之前，对其具体定义、概念、应用及可能出现的恶类型进行梳理了解再开始。    对一个类型针对性练习后，定期">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://darlinghan.github.io/images/sf/%E4%BA%8C%E5%8F%89%E6%A0%91.png">
+<meta property="article:published_time" content="2022-02-15T03:18:20.000Z">
+<meta property="article:modified_time" content="2022-08-16T08:13:27.554Z">
+<meta property="article:author" content="DarLing">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://darlinghan.github.io/images/sf/%E4%BA%8C%E5%8F%89%E6%A0%91.png">
+  
+    <link rel="alternate" href="/atom.xml" title="HL&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/icon_bg.jpg">
+  <link rel="apple-touch-icon" href="/css/images/icon_bg.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/icon_bg.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-sf初识1" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      算法初识1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/02/15/sf%E5%88%9D%E8%AF%861/" class="article-date">
+	  <time datetime="2022-02-15T03:18:20.000Z" itemprop="datePublished">2022-02-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="为什么学习数据结构与算法？"><a href="#为什么学习数据结构与算法？" class="headerlink" title="为什么学习数据结构与算法？"></a>为什么学习数据结构与算法？</h3><p>开发工程师就是把实际的问题转化成计算机指令——设计出数据结构，再加以算法。</p>
+<ol>
+<li>review</li>
+<li>计算机世界的基本规则</li>
+<li>各种框架的原理对于算法应用</li>
+</ol>
+<h3 id="学习思路及方法"><a href="#学习思路及方法" class="headerlink" title="学习思路及方法"></a>学习思路及方法</h3><ul>
+<li><ol>
+<li>对数据结构和算法有一个全方位的了解</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>分类练习——一段时间只练习固定分类的题目，比如只练习二叉树的，开始之前，对其具体定义、概念、应用及可能出现的恶类型进行梳理了解再开始。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>对一个类型针对性练习后，定期回顾，发现规律，进行总结。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>最终达到的效果就是： 当你看到一个题目，首先你要想到它属于哪种数据结构与算法，然后想到这是一个什么类型的问题，然后是此类问题的解决方法。</p>
+</blockquote>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>对象的时间复杂度是 O(1)</p>
+<p>时间复杂度：基本操作重复执行的次数（频度），反映了程序运行开始到结束的时间。<br>没有循环语句，记作 O(1),也称为常数阶。<br>只有一重循环，记作 O(n),频度与问题规模 n 呈线性增大关系。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 常见的时间复杂度有：</span></span><br><span class="line">O(<span class="number">1</span>): Constant Complexity: Constant 常数复杂度</span><br><span class="line">O(log n): Logarithmic Complexity: 对数复杂度</span><br><span class="line">O(n): Linear Complexity: 线性时间复杂度</span><br><span class="line">O(n^<span class="number">2</span>): N square Complexity 平⽅方</span><br><span class="line">O(n^<span class="number">3</span>): N square Complexity ⽴立⽅方</span><br><span class="line">O(<span class="number">2</span>^n): Exponential Growth 指数</span><br><span class="line">O(n!): Factorial 阶乘</span><br></pre></td></tr></table></figure>
+
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>空间复杂度——运行完一个程序所需的内存大小。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>数据元素之间存在的一种和多种特定的关系集合。从逻辑结构、存储结构这两个维度来理解它。</p>
+<ul>
+<li><ol>
+<li>逻辑结构<br>数据之间的关系，可以分为两种：线性结构、非线性结构。<ul>
+<li>线性结构： 一个有序数据元素的集合。数据元素之间的关系是一对一的，除了第一个和最后一个数据元素之外，其它数据元素都是首尾相连的。<br>a. 常用的线性结构有：栈、队列、链表、线性表。</li>
+<li>非线性结构：各个数据元素不再保持在一个线性序列中，每个数据元素可能与零个或多个其他数据元素发生联系。<br>a. 常见的非线性结构： 二维数组、树等。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><p>存储结构<br>逻辑结构用计算机语言的实现。<br>常见的存储结构有：顺序存储、链式存储、索引存储以及散列存储。</p>
+<blockquote>
+<p>例如：<br>a.数组在内存中的位置是连续的，它就属于顺序存储；<br>b.链表是主动建立数据间的关联关系的，在内存中不一定连续，属于链式存储。<br>c.还有顺序和逻辑上都不存在顺序关系，但是你可以通过一定的方式去访问它的哈希表，数据散列存储？？？</p>
+</blockquote>
+<p>感谢掘金大大的文章，让我在学习算法的道路上茅塞顿开！ <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903919722692621#heading-51">前端如何准备数据结构与算法</a></p>
+</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>数据结构——二叉树——每个节点最多有两个子树的树结构（左子树、又子树）<br>树——用来模拟具有树状结构的数据集合。</li>
+</ol>
+<p><img src="/images/sf/%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="二叉树的五种基本形态"></p>
+</li>
+</ul>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="前序遍历（根在前）"><a href="#前序遍历（根在前）" class="headerlink" title="前序遍历（根在前）"></a>前序遍历（根在前）</h4><p>根、左、右</p>
+<h4 id="中序遍历（根在中）"><a href="#中序遍历（根在中）" class="headerlink" title="中序遍历（根在中）"></a>中序遍历（根在中）</h4><p>左、根、右</p>
+<h4 id="后序遍历（根在后）"><a href="#后序遍历（根在后）" class="headerlink" title="后序遍历（根在后）"></a>后序遍历（根在后）</h4><p>左、右、根</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191415.jpg',
+  alipayImage: 'https://hl-blog.oss-cn-shanghai.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201214191422.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>DarLing</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/02/15/sf初识1/" target="_blank" title="算法初识1">https://darlinghan.github.io/hlblog-pages/2022/02/15/sf初识1/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC81MjE4OC8yODY2OA==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/06/09/webpack_%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AAloader%E3%80%81plugin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          webpack如何编写一个loader、plugin
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/09/23/nrm%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nrm使用问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么学习数据结构与算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%B7%AF%E5%8F%8A%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">学习思路及方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">6.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%EF%BC%88%E6%A0%B9%E5%9C%A8%E5%89%8D%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">前序遍历（根在前）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%EF%BC%88%E6%A0%B9%E5%9C%A8%E4%B8%AD%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">中序遍历（根在中）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%EF%BC%88%E6%A0%B9%E5%9C%A8%E5%90%8E%EF%BC%89"><span class="nav-number">6.3.</span> <span class="nav-text">后序遍历（根在后）</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HL&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HL&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 DarLing All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
