@@ -324,6 +324,64 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-微信小程序生成海报"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2024/05/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5/">微信小程序生成海报</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/05/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5/" class="article-date">
+	  <time datetime="2024-05-09T09:23:26.000Z" itemprop="datePublished">2024-05-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          各个文件源码为了优化生成海报的时候较慢，可以刚进入页面的时候就生成海报，但是设置opacity:0;z-index:-1;,等用户点击查看我的海报时，再设置opacity:1;z-index:99;
+wxml、styles可根据后端返回的字段动态生成
+文字必须text标签包裹
+样式的height必须是fontSize的2.6倍取整（大概这个范围）元素才会显示
+元素的width可以根据动态设置
+必须给每一个元素都设置宽和高，并且是数值不带任何单位
+调用this.widget.renderTo...
+        </p>
+        <p class="article-more-link">
+          <a href="/2024/05/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-flutter-macOS环境配置"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -825,64 +883,6 @@ Quick StartCreate a new post1$ hexo new &quot;My New...
         </p>
         <p class="article-more-link">
           <a href="/2022/06/14/%E5%8A%A8%E7%94%BB%E3%80%81%E6%92%AD%E6%94%BE%E5%99%A8%E3%80%81%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E5%A4%A7/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-css相关问题"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/10/css%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">常见的js兼容性问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/10/css%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="article-date">
-	  <time datetime="2022-06-10T08:54:54.000Z" itemprop="datePublished">2022-06-10</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          常见的 js 兼容性问题有哪些
-
-弹框显示时，禁止背景滚动、并且记录滚动距离
-
-
-
-1234567891011// ****showDialog时****// 1.设置body的position: fixed;// 2. 记录滚动的距离 window.scrollYQ.$(&quot;body&quot;).css(&quot;top&quot;, -window.scrollY + &quot;px&quot;);Q.$(&quot;body&quot;).css(&quot;posit...
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/06/10/css%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/#more">Read More</a>
         </p>
       
     </div>
