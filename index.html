@@ -324,6 +324,65 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-h5唤起app"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2024/05/27/h5%E5%94%A4%E8%B5%B7app/">h5唤起app</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/05/27/h5%E5%94%A4%E8%B5%B7app/" class="article-date">
+	  <time datetime="2024-05-27T12:08:58.000Z" itemprop="datePublished">2024-05-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/h5/">h5</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/h5/app/">app</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          背景小程序复制下载链接，h5打开链接，唤起app的方式
+设计思路
+踩坑记录
+applinks的配置不支持h5的hash模式，所以h5页面的路径一定要是history模式，不要带#
+
+iOS9屏蔽了 iframe这个标签,所以ios大于9时，a标签href跳转（schema方式），小于9时，iframe标签跳转（schema方式）
+
+如果根域名或者根域名下的./well-known下配置了apple-app-site-association(就是此文件名，不需要后缀）文件,则顶部会出现注册的...
+        </p>
+        <p class="article-more-link">
+          <a href="/2024/05/27/h5%E5%94%A4%E8%B5%B7app/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-微信小程序生成海报"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -828,61 +887,6 @@ Quick StartCreate a new post1$ hexo new &quot;My New...
         </p>
         <p class="article-more-link">
           <a href="/2022/08/11/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%90%86/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-动画、播放器、文件加载过大"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/14/%E5%8A%A8%E7%94%BB%E3%80%81%E6%92%AD%E6%94%BE%E5%99%A8%E3%80%81%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E5%A4%A7/">动画、播放器、文件加载过大</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/14/%E5%8A%A8%E7%94%BB%E3%80%81%E6%92%AD%E6%94%BE%E5%99%A8%E3%80%81%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E5%A4%A7/" class="article-date">
-	  <time datetime="2022-06-14T04:54:54.000Z" itemprop="datePublished">2022-06-14</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          解决前端动画卡顿的问题页面卡顿原因：我们设备大多数的肉眼可见不卡顿是 60fps,就要求浏览器对每一帧动画的渲染在 16ms 内完成。优化方案如下：
-1.css 优化
-
-尽量使用 transform 属性，避免使用 height、width、margin、padding 等.浏览器的渲染进程里有主线程和合成线程，margin-left:-18px，就要计算 18 次，经历 DOM tree、css tree、render tree、绘制这些阶段，然后合成线程也要计算 18 次，但是使用 t...
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/06/14/%E5%8A%A8%E7%94%BB%E3%80%81%E6%92%AD%E6%94%BE%E5%99%A8%E3%80%81%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E5%A4%A7/#more">Read More</a>
         </p>
       
     </div>
