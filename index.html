@@ -355,13 +355,16 @@
       
         <p class="article-excerpt-content">
           背景小程序复制下载链接，h5打开链接，唤起app的方式
+
+传统方式： schema （区分安卓/ios&lt;9-iframe方式）（ios&gt;0-a标签方式—）
+universal link方式（配置apple-app-site-association文件）
+applinks （配置assetlinks.json文件)
+
 设计思路
 踩坑记录
 applinks的配置不支持h5的hash模式，所以h5页面的路径一定要是history模式，不要带#
 
-iOS9屏蔽了 iframe这个标签,所以ios大于9时，a标签href跳转（schema方式），小于9时，iframe标签跳转（schema方式）
-
-如果根域名或者根域名下的./well-known下配置了apple-app-site-association(就是此文件名，不需要后缀）文件,则顶部会出现注册的...
+iOS9屏蔽了 iframe这个标签,...
         </p>
         <p class="article-more-link">
           <a href="/2024/05/27/h5%E5%94%A4%E8%B5%B7app/#more">Read More</a>
