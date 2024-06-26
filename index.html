@@ -324,6 +324,63 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-微信小程序开发中踩坑记录"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2024/06/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">微信小程序开发中踩坑记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/06/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="article-date">
+	  <time datetime="2024-06-26T13:56:01.000Z" itemprop="datePublished">2024-06-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          scroll-view开发过程中发现ios下，下拉刷新时页面抖动像鬼畜一下，频繁抖动。后来发现，当添加enhanced属性时，（2024年6月26日发现官方文档去掉了这个属性）， scroll-view的顶部上面没有元素时（也就是wxm里第一个元素就是scroll-view)，下拉时会触发顶部回弹效果，导致频繁抖动。
+
+所以 要么不要添加enhanced这个属性（估计官方就是发现这个有兼容性问题才去掉了）
+要么 设置margin-top属性，不要让scroll-view紧挨着顶部
+
+方案1...
+        </p>
+        <p class="article-more-link">
+          <a href="/2024/06/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-h5唤起app"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -822,74 +879,6 @@ Quick StartCreate a new post1$ hexo new &quot;My New...
         </p>
         <p class="article-more-link">
           <a href="/2022/08/16/hello-world/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-小程序原理"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/08/11/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%90%86/">小程序原理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/08/11/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%90%86/" class="article-date">
-	  <time datetime="2022-08-11T06:51:18.000Z" itemprop="datePublished">2022-08-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          需要掌握的基础原理底层架构
-
-传统的网页，UI渲染和JS脚本同一个线程中执行；小程序基于性能的考虑启用了双线程。视图层：webview线程，负责启用不同的webview来渲染不同的小程序页面。逻辑层：一个单独的线程执行JS代码，控制视图层的逻辑。
-
-
-
-启动过程
-
-准备运行环境微信启动双线程环境，在线程中完成小程序基础库的初始化和预执行。
-
-
-
-下载、注入并执行对应小程序代码包初次启动时，需要下载编译后的代码包到本地。如果启动了分包”subPackages”,则只下载主包内容。
-
-
-
-渲染...
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/08/11/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%90%86/#more">Read More</a>
         </p>
       
     </div>
