@@ -324,6 +324,63 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-移动端兼容性问题整理"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/04/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/">移动端兼容性问题整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/04/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" class="article-date">
+	  <time datetime="2021-04-21T09:08:30.000Z" itemprop="datePublished">2021-04-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          红米Note手机position: fixed;布局定位失效。
+设备信息:型号：Redmi Note 8 Pro版本：10
+现象如下：fixed定位的元素随着滚动条滚动了；后来排查发现是因为某个元素宽度超出屏幕，导致定位失效了。
+解决方案如下:1234*&#123;  -webkit-overflow-scrolling:touch;  overflow-x: hidden !important;&#125;*
+
+
+        </p>
+        <p class="article-more-link">
+          <a href="/2021/04/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-移动端css开发小技巧"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -833,61 +890,6 @@ git
 
 
   
-    <article id="post-css动画显示隐藏div"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/01/28/css%E5%8A%A8%E7%94%BB%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8Fdiv/">css动画显示隐藏div</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/01/28/css%E5%8A%A8%E7%94%BB%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8Fdiv/" class="article-date">
-	  <time datetime="2021-01-28T10:03:41.000Z" itemprop="datePublished">2021-01-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          css动画实现过渡效果，展示/隐藏div背景： transition高度不固定的情况下，控制高度height: auto失效，解决方案如下：
-
-先将需要做动画的元素设置 max-height: 0px，overflow: hidden;
-在事件中给元素添加 max-height: 固定高度（&gt;= 元素的实际高度）案例1：123456.test &#123;  transition: max-height 2s;  max-height: 10px;  overflow: hidden...
-        </p>
-        <p class="article-more-link">
-          <a href="/2021/01/28/css%E5%8A%A8%E7%94%BB%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8Fdiv/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
 
 
   <nav id="page-nav">
@@ -907,7 +909,7 @@ git
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2024 HL&#39;s Blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2025 HL&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -1065,7 +1067,7 @@ git
             HL&#39;s Blog
           </div>
           <div class="panel-body">
-            Copyright © 2024 DarLing All Rights Reserved.
+            Copyright © 2025 DarLing All Rights Reserved.
           </div>
         </div>
       </div>
