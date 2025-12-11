@@ -324,6 +324,119 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-伪元素实现虚线"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/05/08/%E4%BC%AA%E5%85%83%E7%B4%A0%E5%AE%9E%E7%8E%B0%E8%99%9A%E7%BA%BF/">伪元素实现虚线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/05/08/%E4%BC%AA%E5%85%83%E7%B4%A0%E5%AE%9E%E7%8E%B0%E8%99%9A%E7%BA%BF/" class="article-date">
+	  <time datetime="2021-05-08T09:08:34.000Z" itemprop="datePublished">2021-05-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          伪元素实现横向虚线——可调整虚线之间的距离背景：border: 1px dotted #ccc;并不能调整虚线之间的距离解决方案： 伪元素、渐变实现.
+1234567891011.column-item::before &#123;    width: 100%;    height: 1px;    background-image: linear-gradient(to left, #f1eded 0%, #ccc 50%, transparent 50%); /** toleft横向...
+        </p>
+        <p class="article-more-link">
+          <a href="/2021/05/08/%E4%BC%AA%E5%85%83%E7%B4%A0%E5%AE%9E%E7%8E%B0%E8%99%9A%E7%BA%BF/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-npm install原理"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/05/06/npm%20install%E5%8E%9F%E7%90%86/">npm install原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/05/06/npm%20install%E5%8E%9F%E7%90%86/" class="article-date">
+	  <time datetime="2021-05-06T12:23:42.000Z" itemprop="datePublished">2021-05-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          npm i的具体机制
+早期的时候 是严格按照package.json的结构，一一对应的在node_modules中按照对应的包，这样造成的问题就是:
+嵌套层级可能过深，在Windows系统中，文件路径最大长度为260个字符
+重复的安装包
+
+
+后来npm 3.X版本采用扁平化的结构
+安装模块时，不管其是直接依赖还是子依赖的依赖，优先将其安装在node_modules根目录。
+当安装到相同模块时，判断已安装的模块版本是否符合新模块的版本范围，如果符合则跳过，不符合则在当前模块的node_mod...
+        </p>
+        <p class="article-more-link">
+          <a href="/2021/05/06/npm%20install%E5%8E%9F%E7%90%86/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-移动端兼容性问题整理"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -754,124 +867,6 @@ https://developers.weixin.qq.com/miniprogram/dev/component/official-account.html
         </p>
         <p class="article-more-link">
           <a href="/2021/02/03/js%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-移动端H5开发技巧"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">移动端H5开发技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="article-date">
-	  <time datetime="2021-01-29T11:45:10.000Z" itemprop="datePublished">2021-01-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          移动端H5上下拖拽，导致背景跟在滑动设置body&#123; overflow:hidden &#125; 就可以了
-
-后来发现iphone6机型上并不生效，向下拖拽会看到网页来源，向上拉会看到背景颜色，最后通过设置整个div的position:fixed;不允许上下滑动解决的。
-
-移动端h5页拉起键盘，fixed元素定位失效，并不能吸顶。原因是，键盘拉起的时候，整个webview向上滚动了，无法控制webview的不允许滚动。
-
-解决方案1，键盘拉起时，下面的元素不允许滚动，也就是禁掉页...
-        </p>
-        <p class="article-more-link">
-          <a href="/2021/01/29/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-git相关命令"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/01/29/git%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">git相关命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/01/29/git%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="article-date">
-	  <time datetime="2021-01-29T11:29:47.000Z" itemprop="datePublished">2021-01-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          git打tag步骤
-git tag XXX
-git checkout XXX
-git push origin XXX
-
-git 去掉本地修改-回退
-git reset –hard
-
-git
-        </p>
-        <p class="article-more-link">
-          <a href="/2021/01/29/git%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/#more">Read More</a>
         </p>
       
     </div>
